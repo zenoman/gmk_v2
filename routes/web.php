@@ -1,5 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Input;
+//kategori artikel
+Route::resource('kategori-artikel','Admin\kategori_artikel');
 //warna
 Route::resource('warna','Admin\warnacontroller');
 

@@ -124,12 +124,12 @@
                                 <li>
                                     <a href="{{url('/pengeluaran')}}">Pengeluaran</a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="{{url('/transaksilangsung')}}">Transaksi Langsung</a>
                                 </li>
                                 <li>
                                     <a href="{{url('/listtransaksilangsung')}}">List Transaksi Langsung</a>
-                                </li>
+                                </li> -->
                                 <li>
                                     <a href="{{url('/pembelian/gagal')}}">Transaksi Gagal</a>
                                 </li>
@@ -141,6 +141,20 @@
                         </li>
                         <li>
                             <a href="{{url('/slider')}}"><i class="fa fa-image fa-fw"></i> Slider</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-file-text fa-fw"></i> Artikel<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li>
+                                    <a href="{{url('/kategori-artikel')}}"> Kategori
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{url('/user')}}">
+                                    Artikel</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="{{url('bank')}}"><i class="fa fa-credit-card"></i> Rekening Toko</a>
@@ -170,12 +184,12 @@
                                 <li>
                                     <a href="{{url('/laporan/pemasukanlain')}}">Laporan Pemasukan Lain</a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="{{url('/laporan/transaksilangsung')}}">Laporan Transaksi Langsung</a>
-                                </li>
-                                <li>
+                                </li> -->
+                                <!-- <li>
                                     <a href="{{url('/laporan/detailtransaksilangsung')}} ">Laporan Detail Transaksi Langsung</a>
-                                </li>
+                                </li> -->
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>

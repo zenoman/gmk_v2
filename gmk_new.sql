@@ -72,12 +72,29 @@ CREATE TABLE IF NOT EXISTS `gambar` (
   `kode_barang` varchar(30) DEFAULT NULL,
   `nama` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=240 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table gmk_new.gambar: ~0 rows (approximately)
 DELETE FROM `gambar`;
 /*!40000 ALTER TABLE `gambar` DISABLE KEYS */;
 /*!40000 ALTER TABLE `gambar` ENABLE KEYS */;
+
+-- Dumping structure for table gmk_new.kategori_artikel
+DROP TABLE IF EXISTS `kategori_artikel`;
+CREATE TABLE IF NOT EXISTS `kategori_artikel` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` varchar(80) DEFAULT '0',
+  `edit` enum('Y','N') DEFAULT 'Y',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table gmk_new.kategori_artikel: ~0 rows (approximately)
+DELETE FROM `kategori_artikel`;
+/*!40000 ALTER TABLE `kategori_artikel` DISABLE KEYS */;
+INSERT INTO `kategori_artikel` (`id`, `nama`, `edit`) VALUES
+	(4, 'asdf', 'Y'),
+	(8, 'asdfasdf', 'N');
+/*!40000 ALTER TABLE `kategori_artikel` ENABLE KEYS */;
 
 -- Dumping structure for table gmk_new.keranjang_cancel
 DROP TABLE IF EXISTS `keranjang_cancel`;
@@ -176,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
 DELETE FROM `settings`;
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
 INSERT INTO `settings` (`idsettings`, `webName`, `kontak1`, `kontak2`, `kontak3`, `email`, `ico`, `meta`, `logo`, `keterangan`, `alamat`, `nama_toko`, `max_tgl`, `peraturan`, `bulansistem`) VALUES
-	(1, 'STORE TULUNGAGUNG', '+6285816900612', '+6281553860046', '+6285856044060', 'bayukhoirul1@gmail.com', '1547722245-dvinafavicon.png', 'Fashion murah meriah berkualitas', '1543717647-logo-dvina.png', 'store tulungagung adalah toko ecer / grosir yang telah terbukti memiliki harga dan kwalitas terbaik\r\nopen reseller , dropshiper, agen. store tulungagung selalu berusaha memberikan pelayanan terbaik kepada pembeli. dan banyak potongan harga untuk pembelian lebih dari 3pcs.', 'Dsn.Jatirejo RT01/RW02 Ds.Tenggur Kec.Rejotangan Kab.Tulungagung', NULL, 7, '<p>1. pastikan telah menjadi member StoreTulungagung</p><p>2. pastikan melakukan pemesanan / keep barang sampai masuk pada W.A admin</p><p>3. jangan lupa bayar setelah beli produk</p><p>4. setiap barang yang telah di masukan keranjang akan hilang secara otomatis apabila tidak di beli dalam jangka waktu 7hari</p><p>5. Happy Shopping gengs</p>', 6);
+	(1, 'Grosir Murah Kediri', '+6285816900612', '+6281553860046', '+6285856044060', 'bayukhoirul1@gmail.com', '1547722245-dvinafavicon.png', 'Fashion murah meriah berkualitas', '1543717647-logo-dvina.png', 'store tulungagung adalah toko ecer / grosir yang telah terbukti memiliki harga dan kwalitas terbaik\r\nopen reseller , dropshiper, agen. store tulungagung selalu berusaha memberikan pelayanan terbaik kepada pembeli. dan banyak potongan harga untuk pembelian lebih dari 3pcs.', 'Dsn.Jatirejo RT01/RW02 Ds.Tenggur Kec.Rejotangan Kab.Tulungagung', NULL, 7, '<p>1. pastikan telah menjadi member StoreTulungagung</p><p>2. pastikan melakukan pemesanan / keep barang sampai masuk pada W.A admin</p><p>3. jangan lupa bayar setelah beli produk</p><p>4. setiap barang yang telah di masukan keranjang akan hilang secara otomatis apabila tidak di beli dalam jangka waktu 7hari</p><p>5. Happy Shopping gengs</p>', 6);
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 
 -- Dumping structure for table gmk_new.sliders
@@ -196,6 +213,25 @@ INSERT INTO `sliders` (`id`, `judul`, `foto`) VALUES
 	(2, 'ini slide 2', '1548724768-tabanner3.jpg'),
 	(3, 'ini slide 3', '1548724999-tabanner1.gif');
 /*!40000 ALTER TABLE `sliders` ENABLE KEYS */;
+
+-- Dumping structure for table gmk_new.tb_artikel
+DROP TABLE IF EXISTS `tb_artikel`;
+CREATE TABLE IF NOT EXISTS `tb_artikel` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `judul` varchar(150) DEFAULT NULL,
+  `link` varchar(150) DEFAULT NULL,
+  `isi` text,
+  `tgl` date DEFAULT NULL,
+  `id_kategori` int(11) DEFAULT NULL,
+  `id_penulis` int(11) DEFAULT NULL,
+  `gambar` varchar(300) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table gmk_new.tb_artikel: ~0 rows (approximately)
+DELETE FROM `tb_artikel`;
+/*!40000 ALTER TABLE `tb_artikel` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_artikel` ENABLE KEYS */;
 
 -- Dumping structure for table gmk_new.tb_bank
 DROP TABLE IF EXISTS `tb_bank`;
@@ -227,7 +263,7 @@ CREATE TABLE IF NOT EXISTS `tb_barangs` (
   `warna` varchar(45) DEFAULT NULL,
   `barang_jenis` varchar(70) DEFAULT NULL,
   PRIMARY KEY (`idbarang`)
-) ENGINE=InnoDB AUTO_INCREMENT=301 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table gmk_new.tb_barangs: ~0 rows (approximately)
 DELETE FROM `tb_barangs`;
@@ -292,7 +328,7 @@ CREATE TABLE IF NOT EXISTS `tb_kodes` (
   `diskon` int(11) DEFAULT '0',
   `tampil` enum('Y','N') DEFAULT 'Y',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=179 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table gmk_new.tb_kodes: ~0 rows (approximately)
 DELETE FROM `tb_kodes`;

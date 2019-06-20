@@ -152,7 +152,7 @@
                 </div>
                 @endif
                  @if($totaltransaksi>0)
-                <div class="col-lg-4 col-md-6">
+                <!-- <div class="col-lg-4 col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <div class="row">
@@ -164,9 +164,9 @@
                             </div>
                         </div>
                      </div>
-                </div>
+                </div> -->
                 @else
-                <div class="col-lg-4 col-md-6">
+                <!-- <div class="col-lg-4 col-md-6">
                     <div class="panel panel-danger">
                         <div class="panel-heading">
                             <div class="row">
@@ -178,10 +178,10 @@
                             </div>
                         </div>
                      </div>
-                </div>
+                </div> -->
                 @endif
                  @if($totaldetailtransaksi>0)
-                <div class="col-lg-4 col-md-6">
+                <!-- <div class="col-lg-4 col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <div class="row">
@@ -192,9 +192,9 @@
                             </div>
                         </div>
                      </div>
-                </div>
+                </div> -->
                 @else
-                <div class="col-lg-4 col-md-6">
+                <!-- <div class="col-lg-4 col-md-6">
                     <div class="panel panel-danger">
                         <div class="panel-heading">
                             <div class="row">
@@ -205,7 +205,7 @@
                             </div>
                         </div>
                      </div>
-                </div>
+                </div> -->
                 @endif
                  @if($totalcancel>0)
                 <div class="col-lg-4 col-md-6">
@@ -246,10 +246,10 @@
                                 </li>
                                 <li class=""><a href="#settings" data-toggle="tab" aria-expanded="true">Pemasukan Lain</a>
                                 </li>
-                                <li class=""><a href="#tl" data-toggle="tab" aria-expanded="true">Transaksi Langsung</a>
+                               <!--  <li class=""><a href="#tl" data-toggle="tab" aria-expanded="true">Transaksi Langsung</a>
                                 </li>
                                 <li class=""><a href="#dtl" data-toggle="tab" aria-expanded="true">Detail Transaksi Langsung</a>
-                                </li>
+                                </li> -->
                                 <li class=""><a href="#lc" data-toggle="tab" aria-expanded="true">List Cancel</a>
                                 </li>
                             </ul>
@@ -304,7 +304,7 @@
                                        <i class="fa fa-trash"></i> Hapus Data
                                     </a>
                                 </div>
-                                <div class="tab-pane fade" id="tl">
+                                <!-- <div class="tab-pane fade" id="tl">
                                     <h4>Backup Data Transaksi Langsung</h4>
                                     <a href="{{url('/cetaktransaksilangsung/'.$bulan.'/'.$tahun)}}" onclick="return confirm('Cetak data Transaksi Langsung ?')" class="btn btn-warning" target="_blank()">
                                        <i class="fa fa-print"></i> Print
@@ -315,8 +315,8 @@
                                     <a href="{{url('/hapustransaksilangsung/'.$bulan.'/'.$tahun)}}" class="btn btn-danger" onclick="return confirm('Hapus data transaksi langsung ?')">
                                        <i class="fa fa-trash"></i> Hapus Data
                                     </a>
-                                </div>
-                                <div class="tab-pane fade" id="dtl">
+                                </div> -->
+                               <!--  <div class="tab-pane fade" id="dtl">
                                     <h4>Backup Data Detail Transaksi Langsung</h4>
                                     <a href="{{url('/cetakdetailtransaksilangsung/'.$bulan.'/'.$tahun)}}" onclick="return confirm('Cetak data Detail Transaksi Langsung ?')" class="btn btn-warning" target="_blank()">
                                        <i class="fa fa-print"></i> Print
@@ -327,7 +327,7 @@
                                     <a href="{{url('/hapusdetailtransaksilangsung/'.$bulan.'/'.$tahun)}}" class="btn btn-danger" onclick="return confirm('Hapus data detail transaksi langsung ?')">
                                        <i class="fa fa-trash"></i> Hapus Data
                                     </a>
-                                </div>
+                                </div> -->
                                 <div class="tab-pane fade" id="lc">
                                     <h4>Backup Data List Cancel</h4>
                                     
