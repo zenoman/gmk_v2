@@ -150,7 +150,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/user')}}">
+                                    <a href="{{url('/artikel')}}">
                                     Artikel</a>
                                 </li>
                             </ul>

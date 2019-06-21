@@ -21,7 +21,7 @@ function isNumberKey(evt)
 <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Tambah Data Warna</h1>
+                    <h1 class="page-header">Tambah Data Artikel</h1>
                 </div>
             </div>
             <div class="row">
@@ -39,32 +39,31 @@ function isNumberKey(evt)
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form action="{{url('warna')}}" role="form" method="POST">
+                                    <form action="{{url('artikel')}}" role="form" method="POST" enctype="multipart/form-data">
                                         <div class="form-group">
-                                            <label>Kode Warna</label>
-                                            <input type="text" class="form-control" placeholder="contoh : 01, 02 dll" name="kode" required>
-                                        </div>
-
-                                        @if($errors->has('kode'))
-                                        <div class="alert alert-danger">
-                                        {{ $errors->first('kode')}}
-                                         </div>
-                                        @endif
-
-
-                                        <div class="form-group">
-                                            <label>Label Warna</label>
-                                            <input type="text" class="form-control" placeholder="contoh : merah, biru dll" name="label_warna" required>
-                                            
+                                            <label>Judul</label>
+                                            <input type="text" class="form-control" name="judul" required>
                                         </div>
                                         <div class="form-group">
-                                            <label>Hex</label>
-                                            <input type="color" name="hex" value="#ff0000" required>
-                                            <p class="help-block">*Minimal 8 karakter</p>
+                                            <label>Isi Artikel</label>
+                                            <textarea name="isi" id="editor"></textarea>
                                         </div>
+                                        <div class="form-group">
+                                            <label>Kategori</label>
+                                            <select class="form-control" name="kategori">
+                                                @foreach($kategori as $row)
+                                                <option value="{{$row->id}}">{{$row->nama}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Gambar</label>
+                                            <input type="file" name="foto" accept="image/*" required>
+                                        </div>
+
                                         {{csrf_field()}}
-                                        <input class="btn btn-primary" type="submit" name="submit" value="simpan">
-                                        <a onclick="window.history.go(-1);" class="btn btn-danger">Kembali</a>
+                                    <input class="btn btn-primary" type="submit" name="submit" value="simpan">
+                                    <a onclick="window.history.go(-1);" class="btn btn-danger">Kembali</a>
                                     </form>
                                 </div>
                               
@@ -80,4 +79,24 @@ function isNumberKey(evt)
             <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
+        @endsection
+         @section('js')
+        <!-- DataTables JavaScript -->
+        <script src="{{asset('assets/js/ckeditor.js')}}"></script>
+  <script>
+    ClassicEditor
+    .create( document.querySelector('#editor'),{
+        toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
+        heading: {
+            options: [
+                { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
+            ]
+        }
+    })
+    .catch( error => {
+        console.log( error );
+    } );
+    </script>
         @endsection

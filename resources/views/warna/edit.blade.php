@@ -17,22 +17,6 @@ function isNumberKey(evt)
 
     return true;
 }
-function mouseoverPass(obj) {
-  var obj = document.getElementById('myPassword');
-  obj.type = "text";
-}
-function mouseoutPass(obj) {
-  var obj = document.getElementById('myPassword');
-  obj.type = "password";
-}
- function mouseoverPass1(obj) {
-  var obj = document.getElementById('myPassword1');
-  obj.type = "text";
-}
-function mouseoutPass1(obj) {
-  var obj = document.getElementById('myPassword1');
-  obj.type = "password";
-}
 </script>
 <div id="page-wrapper">
             <div class="row">
