@@ -89,13 +89,6 @@
                                     <label>Kategori</label>
                                     <input class="form-control" name="nama" placeholder="isikan nama kategori" required>
                                 </div>
-                                <div class="form-group">
-                                    <label>Edit Data</label>
-                                    <select class="form-control" name="status">
-                                        <option value="Y">ya</option>
-                                        <option value="N">tidak</option>
-                                    </select>
-                                </div>
                                 {{csrf_field()}}
                                 <button type="submit" class="btn btn-success btn-block">Simpan</button>
                             </form>
@@ -120,13 +113,6 @@
                                     <label>Kategori</label>
                                     <input class="form-control" name="nama" placeholder="isikan nama kategori" value="{{$row->nama}}" required>
                                   
-                                </div>
-                                <div class="form-group">
-                                    <label>Edit</label>
-                                    <select class="form-control" name="status">
-                                        <option value="Y" @php if($row->edit=='Y'){ echo "selected";} @endphp >ya</option>
-                                        <option value="N" @php if($row->edit=='N'){ echo "selected";} @endphp >tidak</option>
-                                    </select>
                                 </div>
                                 <input type="hidden" name="_method" value="PUT">
                                         {{csrf_field()}}

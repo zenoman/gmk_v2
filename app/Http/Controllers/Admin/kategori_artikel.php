@@ -20,8 +20,7 @@ class kategori_artikel extends Controller
     {
         DB::table('kategori_artikel')
         ->insert([
-            'nama'=>$request->nama,
-            'edit'=>$request->status
+            'nama'=>$request->nama
         ]);
 
         return redirect('kategori-artikel')->with('status','data berhasil disimpan');
@@ -32,8 +31,7 @@ class kategori_artikel extends Controller
         DB::table('kategori_artikel')
         ->where('id','=',$id)
         ->update([
-            'nama'=>$request->nama,
-            'edit'=>$request->status
+            'nama'=>$request->nama
         ]);
         return redirect('kategori-artikel')->with('status','data berhasil diupdate');
     }

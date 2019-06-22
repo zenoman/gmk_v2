@@ -9,11 +9,6 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 class Kategoricontroller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $websetting = DB::table('settings')->limit(1)->get();
@@ -21,22 +16,6 @@ class Kategoricontroller extends Controller
         return view('kategori/index',['kategori'=>$kategoris,'websettings'=>$websetting]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $roles = [
@@ -57,8 +36,8 @@ class Kategoricontroller extends Controller
             //merubah nama file yg ada spasi menjadi -
             $replace_space=str_replace(' ', '-', $lower_file_name);
             $namagambar = time().'-'.$replace_space;
-            //$destination = public_path('img/kategori');
-            $destination = base_path('../public_html/img/kategori');
+            $destination = public_path('img/kategori');
+            //$destination = base_path('../public_html/img/kategori');
             $request->file('gambar_kategori')->move($destination,$namagambar);
         }else{
             $namagambar = 'noimage.jpg';
@@ -113,8 +92,8 @@ class Kategoricontroller extends Controller
             //merubah nama file yg ada spasi menjadi -
             $replace_space=str_replace(' ', '-', $lower_file_name);
             $namagambar = time().'-'.$replace_space;
-            //$destination = public_path('img/kategori');
-             $destination = base_path('../public_html/img/kategori');
+            $destination = public_path('img/kategori');
+            //$destination = base_path('../public_html/img/kategori');
             $request->file('gambar_kategori')->move($destination,$namagambar);
         }
         

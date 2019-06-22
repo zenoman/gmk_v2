@@ -13,6 +13,8 @@ class userUtama extends Controller
     public function index()
     {
         $websetting = DB::table('settings')->limit(1)->get();
+        $kategori = DB::table('tb_kategoris')->get();
+        
         $barangbaru = DB::table('tb_kodes')
             ->select(DB::raw('tb_kodes.*, tb_kategoris.kategori,SUM(tb_barangs.stok) as total'))
             ->join('tb_kategoris', 'tb_kodes.id_kategori', '=', 'tb_kategoris.id')
@@ -44,7 +46,7 @@ class userUtama extends Controller
             ->limit(4)
             ->get();
         $slider = DB::table('sliders')->get();
-        return view("frontend/home",['sliders'=>$slider, 'barangbaru'=>$barangbaru,'barangsuges'=>$barangsuges,'totalkeranjang'=>$totalkeranjang,'websettings'=>$websetting,'totalbayar'=>$totalbayar]);
+        return view("frontend/home",['sliders'=>$slider,'kategori'=>$kategori, 'barangbaru'=>$barangbaru,'barangsuges'=>$barangsuges,'totalkeranjang'=>$totalkeranjang,'websettings'=>$websetting,'totalbayar'=>$totalbayar]);
     }
 
     public function edituser()
