@@ -7,6 +7,7 @@
 <script src="{{asset('user_aset/js/jquery.min.js')}}"></script>
 <!-- Custom Theme files -->
 <!--theme-style-->
+<link href="{{asset('assets/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
 <link href="{{asset('user_aset/css/style.css')}}" rel="stylesheet" type="text/css" media="all" />  
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,23 +42,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="top-head" >
             <div class="header-para">
                 <ul class="social-in">
-                    <li><a href="#"><i> </i></a></li>                       
-                    <li><a href="#"><i class="ic"> </i></a></li>
-                    <li><a href="#"><i class="ic1"> </i></a></li>
+                    <li><a href="#"><span class="fa fa-facebook fa-lg" style="color:white;"> </span></a></li>                       
+                    <li><a href="#"><span class="fa fa-instagram fa-lg" style="color:white;"> </span></a></li>
+                    <li><a href="#"><span class="fa fa-facebook fa-lg" style="color:white;"> </span></a></li>
                     
                 </ul>           
             </div>  
             
             <ul class="header-in">
-                <li ><a href="products.html" >  brands</a></li>
+               <!--  <li ><a href="products.html" >  brands</a></li>
                 <li><a href="404.html">about us</a> </li>
                 <li><a href="contact.html">   contact us</a></li>
-                <li ><a href="#" >   how to use</a></li>
+                <li ><a href="#" >   how to use</a></li> -->
             </ul>
             <div class="search-top">
                 <div class="search">
                     <form>
-                        <input type="text" value="Cari Barang Berdasarkan Nama" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Cari Barang Berdasarkan Nama';}" >
+                        <input type="text" value="Cari Produk Berdasarkan Nama" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Cari Produk Berdasarkan Nama';}" >
                         <input type="submit" value="" >
                     </form>
                 </div>
@@ -77,7 +78,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="top-nav text-center">       
               <ul class="megamenu skyblue">
                   <li class="grid">
-                    <a href="health.html">Home</a>
+                    <a href="{{url('/')}}">Home</a>
                 </li>
                 <li class="grid">
                     <a href="health.html">Semua Produk</a>

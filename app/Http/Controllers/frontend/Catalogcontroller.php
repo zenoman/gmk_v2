@@ -61,18 +61,12 @@ class Catalogcontroller extends Controller
             ->where([['tb_kodes.id',$id],['tb_kodes.tampil','=','Y']])
             ->get();
         $baranglain = DB::table('tb_kodes')
+            ->select(DB::raw('tb_kodes.*,tb_kategoris.kategori'))
+            ->leftjoin('tb_kategoris','tb_kategoris.id','=','tb_kodes.id_kategori')
             ->inRandomOrder()
             ->limit(3)
             ->get();
-        $totalkeranjang = DB::table('tb_details')
-        ->where([['iduser',Session::get('user_id')],['faktur',null]])
-        ->count();
-        $totalbayar = DB::table('tb_details')
-                        ->select(DB::raw('SUM(total) as newtotal'))
-                        ->where([['iduser',Session::get('user_id')],['faktur',null]])
-                        ->get();
-            //dd($barangs);
-        return view('frontend/singleproduk',['baranglain'=>$baranglain,'databarang'=>$barangs,'websettings'=>$websetting,'totalkeranjang'=>$totalkeranjang,'totalbayar'=>$totalbayar]);
+        return view('frontend/singleproduk',['baranglain'=>$baranglain,'databarang'=>$barangs,'websettings'=>$websetting]);
     }
 
     public function masukkeranjang(Request $request)

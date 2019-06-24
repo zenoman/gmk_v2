@@ -84,7 +84,7 @@ h1,h2,h3,h4,h5,h6,label,p{
 .header-para{
 	float:left;
 	  width: 20%;
-	    margin-top: 0.3em;
+	    margin-top: 0.8em;
 }
 ul.social-in li{
 	display: inline-block;	
@@ -346,7 +346,7 @@ ul.wmuSliderPagination {
 	    border-radius: 5px;
 }
 .banner-bottom{
-	width:55%;
+	width:100%;
 	  padding: 0 3em;
 }
 .banner-top-in{
@@ -825,7 +825,6 @@ a.go:hover{
 	color: #fff;
 	font-size: 1.1em;
 	padding: 0.5em 0.8em;
-	width: 15%;
 	background:#615c85;
 	margin: 0.8em 0 0;	
 }
@@ -1783,7 +1782,7 @@ ul.wmuSliderPagination {
 }
 .cart-at {
   width: 52%;
-  padding: 1em 0.5em;
+  padding: 0.5em 0.5em;
 }
 .at {
   width: 35%;
@@ -2001,7 +2000,7 @@ a.elit {
   padding: 1.5em 0;
 }
 ul#etalage {
-	width: 250px !important;
+	width: 100% !important;
 	height: 510px !important;
 }
 li.etalage_small_thumbs {

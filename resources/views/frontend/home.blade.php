@@ -14,36 +14,20 @@
 <div class="container"> 
           <div class="wmuSlider example1">
                <div class="wmuSliderWrapper">
+                @foreach($sliders as $sld)
              <article style="position: absolute; width: 100%; opacity: 0;"> 
                     <div class="banner-wrap">
-                    
-                        <div class="banner-top">
-                        <a href="single.html">
-                        <div class="banner-top-in">
-                            <img src="images/ba.png" class="img-responsive" alt="">
-                        </div></a>
-                        <div class="cart-at grid_1 simpleCart_shelfItem">
-                                <div class="item_add"><span class="item_price" >123 $ <i> </i> </span></div>
-                            <div class="off">
-                                <label>35% off !</label>
-                                <p>White Blended Cotton "still fresh" t-shirt</p>
-                            </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                        
-                        </div>
-                        
-                         
-                          <div class="banner-top banner-bottom">
+                    <div class="banner-top banner-bottom">
                          <a href="single.html">
                         <div class="banner-top-in at">
-                            <img src="images/ba2.png" class="img-responsive" alt="">
+                            <img src="{{asset('img/slider/'.$sld->foto)}}" class="img-responsive" alt="">
+
                         </div></a>
                         <div class="cart-at grid_1 simpleCart_shelfItem">
-                                <div class="item_add"><span class="item_price" >123 $ <i> </i> </span></div>
+                                <!-- <div class="item_add"><span class="item_price" >123 $ <i> </i> </span></div> -->
                             <div class="off">
-                                <label>35% off !</label>
-                                <p>White Blended Cotton "still fresh" t-shirt</p>
+                                <label>{{$sld->judul}}</label>
+                                <p>White Blended Cotton "still fresh" t-shirt White Blended Cotton </p>
                             </div>
                         </div>
                         <div class="clearfix"> </div>
@@ -54,98 +38,16 @@
                          
                      </div>
             </article>
-             <article style="position: absolute; width: 100%; opacity: 0;"> 
-                        <div class="banner-wrap">
-                        
-                        <div class="banner-top">
-                        <a href="single.html">
-                        <div class="banner-top-in">
-                            <img src="images/ba11.png" class="img-responsive" alt="">
-                        </div></a>
-                        <div class="cart-at grid_1 simpleCart_shelfItem">
-                                <div class="item_add"><span class="item_price" >123 $ <i> </i> </span></div>
-                            <div class="off">
-                                <label>35% off !</label>
-                                <p>White Blended Cotton "still fresh" t-shirt</p>
-                            </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                        
-                        </div>
-                        
-                        
-                          <div class="banner-top banner-bottom">
-                          <a href="single.html">
-                        <div class="banner-top-in at">
-                            <img src="images/ba21.png" class="img-responsive" alt="">
-                        </div></a>
-                        <div class="cart-at grid_1 simpleCart_shelfItem">
-                                <div class="item_add"><span class="item_price" >123 $ <i> </i> </span></div>
-                            <div class="off">
-                                <label>35% off !</label>
-                                <p>White Blended Cotton "still fresh" t-shirt</p>
-                            </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                        
-                        </div>
-                        
-                         <div class="clearfix"> </div>
-                        
-                     </div>
-            </article>
-             <article style="position: absolute; width: 100%; opacity: 0;"> 
-                        <div class="banner-wrap">
-                        
-                        <div class="banner-top">
-                        <a href="single.html">
-                        <div class="banner-top-in">
-                            <img src="images/ba12.png" class="img-responsive" alt="">
-                        </div></a>
-                        <div class="cart-at grid_1 simpleCart_shelfItem">
-                                <div class="item_add"><span class="item_price" >123 $ <i> </i> </span></div>
-                            <div class="off">
-                                <label>35% off !</label>
-                                <p>White Blended Cotton "still fresh" t-shirt</p>
-                            </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                        
-                        </div>
-                        
-                         
-                           <div class="banner-top banner-bottom">
-                          <a href="single.html">
-                        <div class="banner-top-in at">
-                            <img src="images/ba22.png" class="img-responsive" alt="">
-                        </div></a>
-                        <div class="cart-at grid_1 simpleCart_shelfItem">
-                                <div class="item_add"><span class="item_price" >123 $ <i> </i> </span></div>
-                            <div class="off">
-                                <label>35% off !</label>
-                                <p>White Blended Cotton "still fresh" t-shirt</p>
-                            </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                        
-                        </div>
-                         <div class="clearfix"> </div>
-                        
-                     </div>
-            </article>
+            @endforeach
             </div>
-             <ul class="wmuSliderPagination">
-                    <li><a href="#" class="">0</a></li>
-                    <li><a href="#" class="">1</a></li>
-                    <li><a href="#" class="wmuActive">2</a></li>
-                </ul>
         </div>
         <!---->
           <script src="{{asset('user_aset/js/jquery.wmuSlider.js')}}"></script> 
               <script>
                 $('.example1').wmuSlider({
-                     pagination : true,
+                     pagination : false,
                      nav : false,
+                     paginationControl:false,
                 });         
              </script>  
         
@@ -175,30 +77,11 @@
             <div class="item">
                 <div class=" box-in">
             <div class=" grid_box">     
-                             <a href="#" > <img src="{{asset('img/kategori/'.$row->gambar)}}" class="img-responsive" alt="">
+                        <a href="#" > <img src="{{asset('img/kategori/'.$row->gambar)}}" class="img-responsive" alt="">
                                 <div class="zoom-icon">
                                     <h5 class="text-center">
                                         Lihat Kategori {{$row->kategori}}</h5>
-                                    <!-- <ul class="in-by">
-                                        <li><h5>sizes:</h5></li>                     
-                                        <li><span>S</span></li>
-                                        <li><span>XS</span></li>
-                                        <li><span>M</span></li>
-                                        <li><span> L</span></li>
-                                        <li><span>XL</span></li>
-                                        <li><span> XXL</span></li>
-                                    </ul> -->
-                    
-                    
-                        <!-- <ul class="in-by-color">
-                            <li><h5>colors:</h5></li>                   
-                            <li><span > </span></li>
-                            <li><span class="color"> </span></li>
-                            <li><span class="color1"> </span></li>
-                            <li><span class="color2"> </span></li>
-                            <li><span class="color3"> </span></li>
-                            
-                        </ul> -->
+                                    
                     
                         </div> </a>     
                    </div>
@@ -272,7 +155,7 @@
                    </div>
                 <!---->
                         <div class="grid_1 simpleCart_shelfItem">
-                            <a href="#" class="cup item_add"><span class=" item_price" >
+                            <a href="{{url('/detailbarang/'.$row->id)}}" class="cup item_add"><span class=" item_price" >
                              @if($row->diskon > 0)
                                 @php
                                 $hargadiskon = $row->harga_barang - ($row->diskon/100*$row->harga_barang); 
@@ -292,22 +175,43 @@
     <!---->
         <h2 class="new text-center">ARTIKEL TERBARU</h2>
         <br>
+        @foreach($artikel as $art)
             <div class="content-bottom">
-
                 <div class="col-md-12 latter">
-                    <h6>NEWSLETTER</h6>
+                    <h6>{{$art->judul}}</h6>
                     <br><br>
-                    <p>sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount</p>
+
+                    <p>{!!substr($art->isi,0,200)!!}</p>
+                    <br>
+                    <span class="label label-primary" style="background-color: #fa7455;">
+                        <i class="fa fa-eye"></i> {{$art->dilihat}}
+                    </span>&nbsp;
+                    <span class="label label-primary" style="background-color: #fa7455;">
+                        <i class="fa fa-calendar"></i> {{$art->tgl}}
+                    </span>
+                    &nbsp;
+                    <span class="label label-primary" style="background-color: #fa7455;">
+                        <i class="fa fa-user"></i> {{$art->id_penulis}}
+                    </span>
+                    &nbsp;
+                    <span class="label label-primary" style="background-color: #fa7455;">
+                        <i class="fa fa-tag"></i> {{$art->id_kategori}}
+                    </span>
                     
+                    <br>
+                    <button class="tombol">
+                        Lanjut Baca
+                    </button>
                     <div class="clearfix"> </div>
                 </div>
-                
+         
                     <div class="clearfix"> </div>
-            </div>
-            <div class="col-md-12">
+            </div><br>
+                   @endforeach
+            <div class="col-md-12 col-sm-12 text-center">
                 <br>
                     <button class="tombol">
-                        Lihat Semua
+                        Lihat Semua Artikel
                     </button>
                 </div>
    @endsection

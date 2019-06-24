@@ -25,7 +25,7 @@ class userUtama extends Controller
             ->havingRaw('SUM(tb_barangs.stok) > ?', [0])
             ->limit(8)
             ->get();
-        
+        $artikel = DB::table('tb_artikel')->limit(3)->orderby('id','desc')->get();
         $totalkeranjang = DB::table('tb_details')
         ->where([['iduser',Session::get('user_id')],['faktur',null]])
         ->count();
@@ -46,7 +46,7 @@ class userUtama extends Controller
             ->limit(4)
             ->get();
         $slider = DB::table('sliders')->get();
-        return view("frontend/home",['sliders'=>$slider,'kategori'=>$kategori, 'barangbaru'=>$barangbaru,'barangsuges'=>$barangsuges,'totalkeranjang'=>$totalkeranjang,'websettings'=>$websetting,'totalbayar'=>$totalbayar]);
+        return view("frontend/home",['sliders'=>$slider,'kategori'=>$kategori, 'barangbaru'=>$barangbaru,'barangsuges'=>$barangsuges,'totalkeranjang'=>$totalkeranjang,'websettings'=>$websetting,'totalbayar'=>$totalbayar,'artikel'=>$artikel]);
     }
 
     public function edituser()
