@@ -7,7 +7,11 @@
     @endforeach
     @endsection
    
-    
+    @section('logo')
+    @foreach($websettings as $webset)
+    <a href="{{url('/')}}"><img src="{{asset('img/setting/'.$webset->logo)}}" alt="" ></a>
+    @endforeach
+    @endsection
     
     @section('content')
 <div class="banner">
@@ -27,7 +31,7 @@
                                 <!-- <div class="item_add"><span class="item_price" >123 $ <i> </i> </span></div> -->
                             <div class="off">
                                 <label>{{$sld->judul}}</label>
-                                <p>White Blended Cotton "still fresh" t-shirt White Blended Cotton </p>
+                                <p>{{$sld->deskripsi}}</p>
                             </div>
                         </div>
                         <div class="clearfix"> </div>
@@ -77,7 +81,7 @@
             <div class="item">
                 <div class=" box-in">
             <div class=" grid_box">     
-                        <a href="#" > <img src="{{asset('img/kategori/'.$row->gambar)}}" class="img-responsive" alt="">
+                        <a> <img src="{{asset('img/kategori/'.$row->gambar)}}" class="img-responsive" alt="">
                                 <div class="zoom-icon">
                                     <h5 class="text-center">
                                         Lihat Kategori {{$row->kategori}}</h5>
@@ -87,7 +91,7 @@
                    </div>
                     <!---->
                         <div class="grid_1 simpleCart_shelfItem">
-                            <a href="#" class="cup item_add"><span class=" item_price" >{{$row->kategori}}</span></a>                  
+                            <a href="{{url('/semuaproduk/'.$row->id.'/kategori')}}" class="cup item_add"><span class=" item_price" >{{$row->kategori}}</span></a>                  
                         </div>
                     <!---->
                 </div>
@@ -106,7 +110,7 @@
         <h2 class="new text-center">PRODUK TERBARU</h2>
         <div class="pink">
             @foreach($barangbaru as $row)
-            <div class="col-md-3 box-in-at">
+            <div class="col-md-4 box-in-at">
             <div class=" grid_box portfolio-wrapper">       
                     <a> 
                         @php
@@ -119,9 +123,8 @@
                                 <img src="{{asset('img/barang/'.$foto->nama)}}" class="img-responsive" alt="">
                         @endforeach
                                 <div class="zoom-icon">
-                                    <ul class="in-by">
-                            <li><h5>Stok :</h5></li>
-                            <li>{{$row->total}} Pcs</li>
+                                    <ul class="in-by" style="padding-bottom:5px;">
+                            <li><h5><b>{{$row->barang}} - {{$row->total}} Pcs</b></h5></li>
                         </ul>
                                     <ul class="in-by">
                                         <li><h5>Ukuran :</h5></li>
@@ -176,8 +179,11 @@
         <h2 class="new text-center">ARTIKEL TERBARU</h2>
         <br>
         @foreach($artikel as $art)
+        <div class="col-md-4">
             <div class="content-bottom">
                 <div class="col-md-12 latter">
+                    <img src="{{asset('img/artikel/'.$art->gambar)}}" alt="" width="100%">
+                    <br><br>
                     <h6>{{$art->judul}}</h6>
                     <br><br>
 
@@ -191,22 +197,22 @@
                     </span>
                     &nbsp;
                     <span class="label label-primary" style="background-color: #fa7455;">
-                        <i class="fa fa-user"></i> {{$art->id_penulis}}
-                    </span>
-                    &nbsp;
-                    <span class="label label-primary" style="background-color: #fa7455;">
-                        <i class="fa fa-tag"></i> {{$art->id_kategori}}
+                        <i class="fa fa-tag"></i> {{$art->nama}}
                     </span>
                     
                     <br>
-                    <button class="tombol">
+                    <div class="text-center">
+                        <button class="btn btn-block tombol">
                         Lanjut Baca
                     </button>
+                        
+                    </div>
                     <div class="clearfix"> </div>
                 </div>
          
                     <div class="clearfix"> </div>
-            </div><br>
+            </div>
+        </div>
                    @endforeach
             <div class="col-md-12 col-sm-12 text-center">
                 <br>

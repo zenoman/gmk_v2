@@ -34,6 +34,10 @@
                                         {{ $errors->first('judul')}}
                                          </div>
                                         @endif
+                                        <div class="form-group">
+                                            <label>Isi</label>
+                                            <textarea name="isi" class="form-control">{{ $slider->deskripsi }}</textarea>
+                                        </div>
                                         <img src="{{asset('img/slider/'.$slider->foto)}}" style="width:100%;height: 100%">
                                         <div class="form-group">
                                             <label>Ganti Gambar</label>

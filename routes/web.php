@@ -79,6 +79,7 @@ Route::get('/pembelian/gagal','Admin\PembelianController@listtolak');
 Route::get('/pembelian/listcancel','Admin\PembelianController@listcancel');
 Route::post('/cetaklistcancel','Admin\PembelianController@cetaklisttolak');
 //catalog
+Route::get('/list-artikel','frontend\Catalogcontroller@artikel');
 Route::get('transaksigagal','frontend\Catalogcontroller@transaksigagal');
 Route::post('/transaksi/tolak','frontend\Catalogcontroller@tolak');
 Route::get('/semuaproduk/{id}/kategori','frontend\Catalogcontroller@kategori');

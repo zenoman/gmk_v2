@@ -44,6 +44,7 @@ class Slidercontroller extends Controller
         }
         slider::create([
             'judul' => $request->judul,
+            'deskripsi'=>$request->isi,
             'foto'  => $namagambar
         ]);
 
@@ -82,11 +83,13 @@ class Slidercontroller extends Controller
             
             slider::find($id)->update([
                 'judul' => $request->judul,
+                'deskripsi'=>$request->isi,
                 'foto' => $namagambar
             ]);
         }else{
             slider::find($id)->update([
-                'judul' => $request->judul
+                'judul' => $request->judul,
+                'deskripsi'=>$request->isi
             ]);
         }
         return redirect ('slider')->with ('status','Edit Data Sukses');

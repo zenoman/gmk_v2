@@ -12,8 +12,8 @@
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Markito Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<meta name="keywords" content="grosir, online shop, kemeja, kaos, 
+baju, jaket, parka, kediri, kota kediri, kab kediri,gmk,grosir murah kediri,grosir murah" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 <script type="text/javascript" src="{{asset('user_aset/js/move-top.js')}}"></script>
@@ -30,9 +30,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="{{asset('user_aset/css/megamenu.css')}}" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="{{asset('user_aset/js/megamenu.js')}}"></script>
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
-
 <script src="{{asset('user_aset/js/simpleCart.min.js')}}"> </script>
- @yield('csspage')
 </head>
 <body> 
 <!--header-->   
@@ -50,10 +48,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>  
             
             <ul class="header-in">
-               <!--  <li ><a href="products.html" >  brands</a></li>
-                <li><a href="404.html">about us</a> </li>
-                <li><a href="contact.html">   contact us</a></li>
-                <li ><a href="#" >   how to use</a></li> -->
             </ul>
             <div class="search-top">
                 <div class="search">
@@ -73,7 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="container">
         <div class="head-top">
             <div class="logo">
-                <a href="index.html"><img src="images/logo.png" alt="" ></a>
+                @yield('logo')
             </div>
         <div class="top-nav text-center">       
               <ul class="megamenu skyblue">
@@ -81,57 +75,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="{{url('/')}}">Home</a>
                 </li>
                 <li class="grid">
-                    <a href="health.html">Semua Produk</a>
+                    <a href="{{url('/semuaproduk')}}">Semua Produk</a>
                 </li> 
                 <li class="grid">
-                    <a href="health.html">Artikel</a>
+                    <a href="{{url('/list-artikel')}}">Artikel</a>
                 </li>
                 <li class="grid">
                     <a href="health.html">Testimoni</a>
                 </li>
                 <li class="grid">
-                    <a href="health.html">Hubungi Kami</a>
+                    <a href="{{url('/hubungikami')}}">Hubungi Kami</a>
                 </li>         
-                <!-- <li><a  href="#">tvs, gaming & cameras</a>
-                  <div class="megapanel">
-                        <div class="row">
-                            <div class="col1">
-                                <div class="h_nav">
-                                    <ul>
-                                        <li><a href="mobile.html">Lenovo Tablets</a></li>
-                                        <li><a href="mobile.html">Motorola</a></li>
-                                        <li><a href="mobile.html">Samsung </a></li>
-                                        <li><a href="mobile.html">Htc Tab</a></li>
-                                        <li><a href="mobile.html">Dell & Compaq</a></li>
-                                        <li><a href="mobile.html">Asus Tablets</a></li>
-                                        <li><a href="mobile.html">Microsoft</a></li>
-                                        <li><a href="mobile.html">Moto E & Moto G</a></li>
-                                        <li><a href="mobile.html">Intex</a></li>
-                                        <li><a href="mobile.html">Hauwei Lumia</a></li>
-                                        <li><a href="mobile.html">Loungewear</a></li>
-                                    </ul>   
-                                </div>                          
-                            </div>
-                            <div class="col1">
-                                <div class="h_nav">
-                                    <ul>
-                                        <li><a href="mobile.html">Asus Zenfone 2</a></li>
-                                        <li><a href="mobile.html">Nikon & Sony</a></li>
-                                        <li><a href="mobile.html">Shorts</a></li>
-                                        <li><a href="mobile.html">Olymplus</a></li>
-                                        <li><a href="mobile.html">Sunglasses</a></li>
-                                        <li><a href="mobile.html">Samsung Nx</a></li>
-                                        <li><a href="mobile.html">Printers & Monitors</a></li>
-                                        <li><a href="mobile.html">Routers</a></li>
-                                        <li><a href="mobile.html">Data Cards</a></li>
-                                        <li><a href="mobile.html">Mouse & Keyboard</a></li>
-                                        <li><a href="mobile.html">Ink Cartridges</a></li>
-                                    </ul>   
-                                </div>                          
-                            </div>
-                          </div>
-                        </div></li> -->
-            
                 
               </ul> 
                 </div>

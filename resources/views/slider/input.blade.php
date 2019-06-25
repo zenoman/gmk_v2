@@ -33,7 +33,12 @@
                                         <div class="alert alert-danger">
                                         {{ $errors->first('judul')}}
                                          </div>
+
                                         @endif
+                                        <div class="form-group">
+                                            <label>Isi</label>
+                                            <textarea name="isi" class="form-control">{{ old('isi') }}</textarea>
+                                        </div>
                                         <div class="form-group">
                                             <label>Gambar</label>
                                             <input type="file" name="gambar" required accept="image/*">

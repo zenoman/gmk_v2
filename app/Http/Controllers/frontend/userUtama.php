@@ -25,15 +25,13 @@ class userUtama extends Controller
             ->havingRaw('SUM(tb_barangs.stok) > ?', [0])
             ->limit(8)
             ->get();
-        $artikel = DB::table('tb_artikel')->limit(3)->orderby('id','desc')->get();
-        $totalkeranjang = DB::table('tb_details')
-        ->where([['iduser',Session::get('user_id')],['faktur',null]])
-        ->count();
-
-        $totalbayar = DB::table('tb_details')
-                        ->select(DB::raw('SUM(total) as newtotal'))
-                        ->where([['iduser',Session::get('user_id')],['faktur',null]])
-                        ->get();
+        $artikel = DB::table('tb_artikel')
+        ->select(DB::raw('tb_artikel.*,kategori_artikel.nama'))
+        ->leftjoin('kategori_artikel','kategori_artikel.id','=','tb_artikel.id_kategori')
+        ->limit(3)
+        ->orderby('tb_artikel.id','desc')
+        ->get();
+        
 
         $barangsuges = DB::table('tb_kodes')
             ->select(DB::raw('tb_kodes.*, tb_kategoris.kategori,SUM(tb_barangs.stok) as total'))

@@ -9,6 +9,17 @@ use Illuminate\Support\Facades\Session;
 
 class Catalogcontroller extends Controller
 {
+    public function artikel()
+    {
+       $websetting = DB::table('settings')->limit(1)->get();
+       $artikel = DB::table('tb_artikel')
+        ->select(DB::raw('tb_artikel.*,kategori_artikel.nama'))
+        ->leftjoin('kategori_artikel','kategori_artikel.id','=','tb_artikel.id_kategori')
+        ->orderby('tb_artikel.id','desc')
+        ->paginate(8);
+        $kategori = DB::table('kategori_artikel')->get();
+       return view('frontend/artikel',['artikel'=>$artikel,'websettings'=>$websetting,'kategori'=>$kategori]);
+    }
     public function index(){
         $websetting = DB::table('settings')->limit(1)->get();
     	$barangs = DB::table('tb_kodes')
@@ -20,16 +31,9 @@ class Catalogcontroller extends Controller
             ->orderby('tb_kodes.id','desc')
             ->havingRaw('SUM(tb_barangs.stok) > ?', [0])
             ->paginate(15);
-        $totalkeranjang = DB::table('tb_details')
-        ->where([['iduser',Session::get('user_id')],['faktur',null]])
-        ->count();
-
-        $totalbayar = DB::table('tb_details')
-                        ->select(DB::raw('SUM(total) as newtotal'))
-                        ->where([['iduser',Session::get('user_id')],['faktur',null]])
-                        ->get();
         $kategori = DB::table('tb_kategoris')->get();
-    	return view('frontend/semuaproduk',['barangs'=>$barangs,'kategoris'=>$kategori,'websettings'=>$websetting,'totalkeranjang'=>$totalkeranjang,'totalbayar'=>$totalbayar]);
+
+    	return view('frontend/semuaproduk',['barangs'=>$barangs,'kategoris'=>$kategori,'websettings'=>$websetting]);
     }
 
     public function keranjang(){
