@@ -28,7 +28,7 @@
                     <hr>
                 <div class=" col-md-4">
 
-                       <div class="well well-xl text-center">
+                       <div class="well well-xl text-center" style="background-color: #fa7455; color: white;">
                         <p  style="font-size: 60px;"><i class="fa fa-phone"></i></p>
                         <h4>
                        Admin 1 : {{$webset->kontak1}}</h4>
@@ -36,14 +36,14 @@
                     </div>
                     <div class=" col-md-4">
 
-                       <div class="well well-xl text-center">
+                       <div class="well well-xl text-center" style="background-color: #fa7455; color: white;">
                         <p  style="font-size: 60px;"><i class="fa fa-phone"></i></p>
                         <h4>
                        Admin 2 : {{$webset->kontak2}}</h4>
                         </div>
                     </div>
                     <div class=" col-md-4">
-                        <div class="well well-xl text-center">
+                        <div class="well well-xl text-center" style="background-color: #fa7455; color: white;">
                         <p  style="font-size: 60px;"><i class="fa fa-phone"></i></p>
                         <h4>
                        Admin 3 : {{$webset->kontak3}}</h4>
@@ -60,7 +60,7 @@
                 </div>
             <div class="text-center">
                 <br><br>
-                <p><i class="fa fa-book"></i> {{$webset->alamat}}</p>
+                <p><i class="fa fa-map-marker"></i> {{$webset->alamat}}</p>
             </div>
     @endsection
     

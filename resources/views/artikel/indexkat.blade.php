@@ -55,7 +55,7 @@
                                         <td>{{$i++}}</td>
                                         <td>{{$row->nama}}</td>
                                         <td class="text-center">
-                                        
+                                         @if($row->edit=='Y')
                                       <form method="post" action="{{url('kategori-artikel/'.$row->id)}}">
                                             <input type="hidden" name="_method" value="DELETE">
                                             {{csrf_field()}}
@@ -64,7 +64,9 @@
                                             </button>
                                             <button type="submit" onclick="return confirm('Hapus Data ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i> Hapus</button>
                                         </form>
-                                                     
+                                        @else
+                                        <p class="text-danger">Maaf, Kategori Ini Tidak Dapat Diubah</p>
+                                        @endif       
                                         </td>
                                     </tr>
                                    @endforeach

@@ -37,7 +37,7 @@ baju, jaket, parka, kediri, kota kediri, kab kediri,gmk,grosir murah kediri,gros
 <div class="header" >
     <div class="top-header" >       
         <div class="container">
-        <div class="top-head" >
+        <div class="top-head text-center" >
             <div class="header-para">
                 <ul class="social-in">
                     <li><a href="#"><span class="fa fa-facebook fa-lg" style="color:white;"> </span></a></li>                       
@@ -46,20 +46,6 @@ baju, jaket, parka, kediri, kota kediri, kab kediri,gmk,grosir murah kediri,gros
                     
                 </ul>           
             </div>  
-            
-            <ul class="header-in">
-            </ul>
-            <div class="search-top">
-                <div class="search">
-                    <form>
-                        <input type="text" value="Cari Produk Berdasarkan Nama" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Cari Produk Berdasarkan Nama';}" >
-                        <input type="submit" value="" >
-                    </form>
-                </div>
-                
-                <div class="clearfix"> </div>
-            </div>
-                <div class="clearfix"> </div>
         </div>
         </div>
     </div>
@@ -81,7 +67,11 @@ baju, jaket, parka, kediri, kota kediri, kab kediri,gmk,grosir murah kediri,gros
                     <a href="{{url('/list-artikel')}}">Artikel</a>
                 </li>
                 <li class="grid">
-                    <a href="health.html">Testimoni</a>
+                    <a href="{{url('/list-testimoni')}}">Testimoni</a>
+                </li>
+                <li class="grid">
+                    <a href="{{url('/cara-belanja')}}">Cara Belanja</a>
+
                 </li>
                 <li class="grid">
                     <a href="{{url('/hubungikami')}}">Hubungi Kami</a>
@@ -109,6 +99,8 @@ baju, jaket, parka, kediri, kota kediri, kab kediri,gmk,grosir murah kediri,gros
                 <img src="images/ad1.png" class="img-responsive" alt="">
             </div>
             <div class="clearfix"> </div>
+
+            
         </div>
     
     </div>

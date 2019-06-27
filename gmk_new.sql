@@ -72,11 +72,22 @@ CREATE TABLE IF NOT EXISTS `gambar` (
   `kode_barang` varchar(30) DEFAULT NULL,
   `nama` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
--- Dumping data for table gmk_new.gambar: ~0 rows (approximately)
+-- Dumping data for table gmk_new.gambar: ~10 rows (approximately)
 DELETE FROM `gambar`;
 /*!40000 ALTER TABLE `gambar` DISABLE KEYS */;
+INSERT INTO `gambar` (`id`, `kode_barang`, `nama`) VALUES
+	(1, 'BRG00001', '1561169422-ba11.png'),
+	(2, 'BRG00001', '1561169425-ba12.png'),
+	(3, 'BRG00001', '1561169427-ba21.png'),
+	(4, 'BRG00001', '1561169428-ba22.png'),
+	(5, 'BRG00003', '1561260024-fa4.jpg'),
+	(6, 'BRG00003', '1561260025-fa5.jpg'),
+	(7, 'BRG00003', '1561260026-fa6.jpg'),
+	(8, 'BRG00002', '1561260083-gmk1561258794258.jpg'),
+	(9, 'BRG00002', '1561260084-gmk1561258797892.jpg'),
+	(10, 'BRG00002', '1561260085-gmk1561258884646.jpg');
 /*!40000 ALTER TABLE `gambar` ENABLE KEYS */;
 
 -- Dumping structure for table gmk_new.kategori_artikel
@@ -86,14 +97,16 @@ CREATE TABLE IF NOT EXISTS `kategori_artikel` (
   `nama` varchar(80) DEFAULT '0',
   `edit` enum('Y','N') DEFAULT 'Y',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Dumping data for table gmk_new.kategori_artikel: ~0 rows (approximately)
+-- Dumping data for table gmk_new.kategori_artikel: ~4 rows (approximately)
 DELETE FROM `kategori_artikel`;
 /*!40000 ALTER TABLE `kategori_artikel` DISABLE KEYS */;
 INSERT INTO `kategori_artikel` (`id`, `nama`, `edit`) VALUES
-	(4, 'asdf', 'Y'),
-	(8, 'asdfasdf', 'N');
+	(1, 'info reseller', 'Y'),
+	(2, 'promo', 'Y'),
+	(3, 'halo', 'Y'),
+	(4, 'testimoni', 'N');
 /*!40000 ALTER TABLE `kategori_artikel` ENABLE KEYS */;
 
 -- Dumping structure for table gmk_new.keranjang_cancel
@@ -189,11 +202,11 @@ CREATE TABLE IF NOT EXISTS `settings` (
   PRIMARY KEY (`idsettings`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table gmk_new.settings: ~0 rows (approximately)
+-- Dumping data for table gmk_new.settings: ~1 rows (approximately)
 DELETE FROM `settings`;
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
 INSERT INTO `settings` (`idsettings`, `webName`, `kontak1`, `kontak2`, `kontak3`, `email`, `ico`, `meta`, `logo`, `keterangan`, `alamat`, `nama_toko`, `max_tgl`, `peraturan`, `bulansistem`) VALUES
-	(1, 'Grosir Murah Kediri', '+6285816900612', '+6281553860046', '+6285856044060', 'bayukhoirul1@gmail.com', '1547722245-dvinafavicon.png', 'Fashion murah meriah berkualitas', '1543717647-logo-dvina.png', 'store tulungagung adalah toko ecer / grosir yang telah terbukti memiliki harga dan kwalitas terbaik\r\nopen reseller , dropshiper, agen. store tulungagung selalu berusaha memberikan pelayanan terbaik kepada pembeli. dan banyak potongan harga untuk pembelian lebih dari 3pcs.', 'Dsn.Jatirejo RT01/RW02 Ds.Tenggur Kec.Rejotangan Kab.Tulungagung', NULL, 7, '<p>1. pastikan telah menjadi member StoreTulungagung</p><p>2. pastikan melakukan pemesanan / keep barang sampai masuk pada W.A admin</p><p>3. jangan lupa bayar setelah beli produk</p><p>4. setiap barang yang telah di masukan keranjang akan hilang secara otomatis apabila tidak di beli dalam jangka waktu 7hari</p><p>5. Happy Shopping gengs</p>', 6);
+	(1, 'Grosir Murah Kediri', '+6285816900612', '+6281553860046', '+6285856044060', 'bayukhoirul1@gmail.com', '1547722245-dvinafavicon.png', 'Fashion murah meriah berkualitas', '1543717647-logo-dvina.png', 'store tulungagung adalah toko ecer / grosir yang telah terbukti memiliki harga dan kwalitas terbaik\r\nopen reseller , dropshiper, agen. store tulungagung selalu berusaha memberikan pelayanan terbaik kepada pembeli. dan banyak potongan harga untuk pembelian lebih dari 3pcs.', 'Dsn.Jatirejo RT01/RW02 Ds.Tenggur Kec.Rejotangan Kab.Tulungagung', NULL, 7, '<ol><li>pastikan telah menjadi member StoreTulungagung</li><li>pastikan melakukan pemesanan / keep barang sampai masuk pada W.A admin</li><li>jangan lupa bayar setelah beli produk</li><li>setiap barang yang telah di masukan keranjang akan hilang secara otomatis apabila tidak di beli dalam jangka waktu 7hari</li><li>Happy Shopping gengs</li></ol>', 6);
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 
 -- Dumping structure for table gmk_new.sliders
@@ -201,17 +214,19 @@ DROP TABLE IF EXISTS `sliders`;
 CREATE TABLE IF NOT EXISTS `sliders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `judul` varchar(100) DEFAULT NULL,
+  `deskripsi` text,
   `foto` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Dumping data for table gmk_new.sliders: ~3 rows (approximately)
+-- Dumping data for table gmk_new.sliders: ~4 rows (approximately)
 DELETE FROM `sliders`;
 /*!40000 ALTER TABLE `sliders` DISABLE KEYS */;
-INSERT INTO `sliders` (`id`, `judul`, `foto`) VALUES
-	(1, 'ini slide 1', '1548724725-tabanner2.jpg'),
-	(2, 'ini slide 2', '1548724768-tabanner3.jpg'),
-	(3, 'ini slide 3', '1548724999-tabanner1.gif');
+INSERT INTO `sliders` (`id`, `judul`, `deskripsi`, `foto`) VALUES
+	(1, 'ini slide 1', 'Promo semua kemeja flanel dan salur, diskon 10% dan stok melimpah', '1561293277-gmk1561258797892.jpg'),
+	(2, 'Info Jaket Hodie Polos', 'Tanggal 20 stok jaket hoodie polos bakal dateng lagi, buruan cus sembelum kehabisan', '1561293329-gmk1561258884646.jpg'),
+	(3, 'ini slide 3', NULL, '1561293368-gmk1561258894334.jpg'),
+	(4, 'Kemeja Murah', 'Promo semua kemeja flanel dan salur, diskon 10% dan stok melimpah', '1561414055-gmk1561258887607.jpg');
 /*!40000 ALTER TABLE `sliders` ENABLE KEYS */;
 
 -- Dumping structure for table gmk_new.tb_artikel
@@ -224,13 +239,19 @@ CREATE TABLE IF NOT EXISTS `tb_artikel` (
   `tgl` date DEFAULT NULL,
   `id_kategori` int(11) DEFAULT NULL,
   `id_penulis` int(11) DEFAULT NULL,
+  `dilihat` int(11) DEFAULT '0',
   `gambar` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Dumping data for table gmk_new.tb_artikel: ~0 rows (approximately)
+-- Dumping data for table gmk_new.tb_artikel: ~4 rows (approximately)
 DELETE FROM `tb_artikel`;
 /*!40000 ALTER TABLE `tb_artikel` DISABLE KEYS */;
+INSERT INTO `tb_artikel` (`id`, `judul`, `link`, `isi`, `tgl`, `id_kategori`, `id_penulis`, `dilihat`, `gambar`) VALUES
+	(1, 'Diskon 10% jaket polos', 'diskon-10%-jaket-polos', '<p>sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount</p><p><strong>sign up now to our newsletter discount!</strong> to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount</p>', '2019-06-23', 1, 10, 0, '1561261185-1544675574-hijab-muslimah-murah-ramadhan.jpg'),
+	(2, 'Preorder jadi pilihan', 'preorder-jadi-pilihan', '<p>sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount</p><p><strong>sign up now to our newsletter discount! to get the Welcome</strong> discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discountsign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount</p>', '2019-06-23', 3, 10, 2, '1561261269-1548724725-tabanner2.jpg'),
+	(3, 'coming soon kaos polos premium', 'coming-soon-kaos-polos-premium', '<p>sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount</p><p>sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discountsign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount</p>', '2019-06-23', 2, 10, 0, '1561261337-1548724768-tabanner3.jpg'),
+	(4, 'coba testi', 'coba-testi', '<p>sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome disign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome disign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome disign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome di</p><p>sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome disign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome discount sign up now to our newsletter discount! to get the Welcome di</p>', '2019-06-27', 4, 10, 0, '1561600916-1544675484-diskon.jpg');
 /*!40000 ALTER TABLE `tb_artikel` ENABLE KEYS */;
 
 -- Dumping structure for table gmk_new.tb_bank
@@ -263,11 +284,18 @@ CREATE TABLE IF NOT EXISTS `tb_barangs` (
   `warna` varchar(45) DEFAULT NULL,
   `barang_jenis` varchar(70) DEFAULT NULL,
   PRIMARY KEY (`idbarang`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
--- Dumping data for table gmk_new.tb_barangs: ~0 rows (approximately)
+-- Dumping data for table gmk_new.tb_barangs: ~6 rows (approximately)
 DELETE FROM `tb_barangs`;
 /*!40000 ALTER TABLE `tb_barangs` DISABLE KEYS */;
+INSERT INTO `tb_barangs` (`idbarang`, `kode`, `kode_v`, `stok`, `warna`, `barang_jenis`) VALUES
+	(1, 'BRG00001', '02', 5, 'm', 'kaos polos m'),
+	(2, 'BRG00001', '03', 15, 'xl', 'kaos polos xl'),
+	(3, 'BRG00002', '02', 10, 'L', 'jaket polos L'),
+	(4, 'BRG00002', '01', 5, 'M', 'jaket polos M'),
+	(5, 'BRG00003', '04', 20, 'X', 'kaos salur X'),
+	(6, 'BRG00003', '05', 10, 'XXL', 'kaos salur XXL');
 /*!40000 ALTER TABLE `tb_barangs` ENABLE KEYS */;
 
 -- Dumping structure for table gmk_new.tb_details
@@ -305,13 +333,17 @@ CREATE TABLE IF NOT EXISTS `tb_kategoris` (
   `kategori` varchar(100) DEFAULT NULL,
   `gambar` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
--- Dumping data for table gmk_new.tb_kategoris: ~0 rows (approximately)
+-- Dumping data for table gmk_new.tb_kategoris: ~5 rows (approximately)
 DELETE FROM `tb_kategoris`;
 /*!40000 ALTER TABLE `tb_kategoris` DISABLE KEYS */;
 INSERT INTO `tb_kategoris` (`id`, `kategori`, `gambar`) VALUES
-	(1, 'kemeja', '1560863420-da.jpg');
+	(3, 'kemeja', '1561169319-pi11.jpg'),
+	(4, 'kaos oblong', '1561169343-ba22.png'),
+	(5, 'kemeja cewek', '1561259069-fa6.jpg'),
+	(6, 'jaket hoodie', '1561259103-ba21.png'),
+	(7, 'kaos cewek', '1561259134-fa7.jpg');
 /*!40000 ALTER TABLE `tb_kategoris` ENABLE KEYS */;
 
 -- Dumping structure for table gmk_new.tb_kodes
@@ -328,11 +360,15 @@ CREATE TABLE IF NOT EXISTS `tb_kodes` (
   `diskon` int(11) DEFAULT '0',
   `tampil` enum('Y','N') DEFAULT 'Y',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Dumping data for table gmk_new.tb_kodes: ~0 rows (approximately)
+-- Dumping data for table gmk_new.tb_kodes: ~3 rows (approximately)
 DELETE FROM `tb_kodes`;
 /*!40000 ALTER TABLE `tb_kodes` DISABLE KEYS */;
+INSERT INTO `tb_kodes` (`id`, `id_kategori`, `kode_barang`, `barang`, `harga_beli`, `harga_barang`, `harga_reseller`, `deskripsi`, `diskon`, `tampil`) VALUES
+	(1, 4, 'BRG00001', 'kaos polos', 20000, 30000, 25000, '<p>asdfasdfasfd</p>', 0, 'Y'),
+	(2, 6, 'BRG00002', 'jaket polos ', 70000, 85000, 80000, 'kemja mantul mantab jiwa', 15, 'Y'),
+	(3, 7, 'BRG00003', 'kaos salur', 40000, 60000, 55000, 'kaos premum harga medium', 0, 'Y');
 /*!40000 ALTER TABLE `tb_kodes` ENABLE KEYS */;
 
 -- Dumping structure for table gmk_new.tb_stokawals
@@ -366,11 +402,18 @@ CREATE TABLE IF NOT EXISTS `tb_tambahstoks` (
   `keterangan` varchar(100) DEFAULT NULL,
   `aksi` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
--- Dumping data for table gmk_new.tb_tambahstoks: ~0 rows (approximately)
+-- Dumping data for table gmk_new.tb_tambahstoks: ~6 rows (approximately)
 DELETE FROM `tb_tambahstoks`;
 /*!40000 ALTER TABLE `tb_tambahstoks` DISABLE KEYS */;
+INSERT INTO `tb_tambahstoks` (`id`, `idwarna`, `idadmin`, `kode_barang`, `jumlah`, `total`, `tgl`, `keterangan`, `aksi`) VALUES
+	(1, 1, 10, 'BRG00001', 5, 100000, '2019-06-22', 'menambah pertama kali', 'tambah'),
+	(2, 2, 10, 'BRG00001', 15, 300000, '2019-06-22', 'menambah pertama kali', 'tambah'),
+	(3, 3, 10, 'BRG00002', 10, 350000, '2019-06-23', 'menambah pertama kali', 'tambah'),
+	(4, 4, 10, 'BRG00002', 5, 350000, '2019-06-23', 'menambah pertama kali', 'tambah'),
+	(5, 5, 10, 'BRG00003', 20, 400000, '2019-06-23', 'menambah pertama kali', 'tambah'),
+	(6, 6, 10, 'BRG00003', 10, 400000, '2019-06-23', 'menambah pertama kali', 'tambah');
 /*!40000 ALTER TABLE `tb_tambahstoks` ENABLE KEYS */;
 
 -- Dumping structure for table gmk_new.tb_transaksis
@@ -434,11 +477,18 @@ CREATE TABLE IF NOT EXISTS `tb_varian` (
   `varian` varchar(50) DEFAULT '0',
   `hex` varchar(50) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
--- Dumping data for table gmk_new.tb_varian: 0 rows
+-- Dumping data for table gmk_new.tb_varian: 6 rows
 DELETE FROM `tb_varian`;
 /*!40000 ALTER TABLE `tb_varian` DISABLE KEYS */;
+INSERT INTO `tb_varian` (`id`, `kode_v`, `varian`, `hex`) VALUES
+	(2, '01', 'merah', '#fb0429'),
+	(3, '02', 'biru', '#3914eb'),
+	(4, '03', 'hitam', '#000000'),
+	(6, '04', 'orange', '#ff8000'),
+	(7, '05', 'biru laut', '#0080ff'),
+	(8, '06', 'hijau muda', '#00ff00');
 /*!40000 ALTER TABLE `tb_varian` ENABLE KEYS */;
 
 -- Dumping structure for trigger gmk_new.add_stok

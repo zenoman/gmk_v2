@@ -88,10 +88,23 @@
         </div>
         <div class="col-md-2">
             <div class="single-bottom">
+                        <h4>Cari Produk</h4>
+                        <br>
+                        <form action="">
+                            <div class="form-group text-center">
+                                <input type="text" class="form-control" required>
+                                 <button class="tombol"><i class="fa fa-search"></i> Cari</button>
+                            </div>
+                        </form>
+                    </div>
+            <div class="single-bottom">
                         <h4>Kategori</h4>
                         <ul>
                              @foreach($kategoris as $kategori)
-                            <li><label for="brand"><span></span>{{$kategori->kategori}}</label></li>
+                            <li>
+                                <a href="{{url('/semuaproduk/'.$kategori->id.'/kategori')}}">
+                                    <label for="brand"><span></span>{{$kategori->kategori}}</label>
+                                </a></li>
                             @endforeach
                             
                         </ul>

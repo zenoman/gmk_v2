@@ -44,7 +44,7 @@ class userUtama extends Controller
             ->limit(4)
             ->get();
         $slider = DB::table('sliders')->get();
-        return view("frontend/home",['sliders'=>$slider,'kategori'=>$kategori, 'barangbaru'=>$barangbaru,'barangsuges'=>$barangsuges,'totalkeranjang'=>$totalkeranjang,'websettings'=>$websetting,'totalbayar'=>$totalbayar,'artikel'=>$artikel]);
+        return view("frontend/home",['sliders'=>$slider,'kategori'=>$kategori, 'barangbaru'=>$barangbaru,'barangsuges'=>$barangsuges,'websettings'=>$websetting,'artikel'=>$artikel]);
     }
 
     public function edituser()
@@ -128,9 +128,12 @@ class userUtama extends Controller
                 }
                 return back()->with('status','Edit Profile Sukses');
     }
+    //==========================================================
     public function hubungi()
     {
         $websetting = DB::table('settings')->limit(1)->get();
         return view('frontend/hubungikami',['websettings'=>$websetting]);
     }
+
+    
 }

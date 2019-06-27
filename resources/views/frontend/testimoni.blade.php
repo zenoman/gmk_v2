@@ -18,9 +18,9 @@
 <div class="content">
     <div class="container">
         <br>
-        <h2 class="new text-center">ARTIKEL TERBARU</h2>
+        <h2 class="new text-center">Testimoni</h2>
         <br>
-        <div class="col-md-10">
+        <div class="col-md-12">
             @foreach($artikel as $art)
         <div class="col-md-6">
             <div class="content-bottom">
@@ -61,21 +61,6 @@
                 <br>
                     {{ $artikel->links() }}
                 </div>
-        </div>
-        <div class="col-md-2">
-             <div class="single-bottom">
-                        <h4>Kategori</h4>
-                        <ul>
-                             @foreach($kategori as $kategori)
-                            <li>
-                                <a href="{{url('list-artikel/'.$kategori->id.'/kategori')}}">
-                                    <label for="brand"><span></span>{{$kategori->nama}}</label>
-                                </a>
-                            </li>
-                            @endforeach
-                            
-                        </ul>
-                    </div>
         </div>
         </div>
 </div>

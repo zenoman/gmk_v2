@@ -18,11 +18,10 @@
 <div class="content">
     <div class="container">
         <br>
-        <h2 class="new text-center">ARTIKEL TERBARU</h2>
+        <h2 class="new text-center">DETAIL ARTIKEL</h2>
         <br>
         <div class="col-md-10">
             @foreach($artikel as $art)
-        <div class="col-md-6">
             <div class="content-bottom">
                 <div class="col-md-12 latter">
                     <img src="{{asset('img/artikel/'.$art->gambar)}}" alt="" width="100%">
@@ -30,7 +29,7 @@
                     <h6>{{$art->judul}}</h6>
                     <br><br>
 
-                    <p>{!!substr($art->isi,0,200)!!}</p>
+                    <p>{!!$art->isi!!}</p>
                     <br>
                     <span class="label label-primary" style="background-color: #fa7455;">
                         <i class="fa fa-eye"></i> {{$art->dilihat}}
@@ -43,10 +42,10 @@
                         <i class="fa fa-tag"></i> {{$art->nama}}
                     </span>
                     
-                    <br>
+                    <br><br>
                     <div class="text-center">
-                        <a href="{{url('/detail-artikel/'.$art->link)}}" class="btn btn-block tombol" style="color: white;">
-                        Lanjut Baca
+                        <a href="#" onclick="history.go(-1)" class="tombol" style="color: white;">
+                        <i class="fa fa-arrow-left"></i> Kembali
                     </a>
                         
                     </div>
@@ -55,23 +54,15 @@
          
                     <div class="clearfix"> </div>
             </div>
-        </div>
                    @endforeach
-            <div class="col-md-12 col-sm-12 text-center">
-                <br>
-                    {{ $artikel->links() }}
-                </div>
+                   <br>
         </div>
         <div class="col-md-2">
              <div class="single-bottom">
                         <h4>Kategori</h4>
                         <ul>
                              @foreach($kategori as $kategori)
-                            <li>
-                                <a href="{{url('list-artikel/'.$kategori->id.'/kategori')}}">
-                                    <label for="brand"><span></span>{{$kategori->nama}}</label>
-                                </a>
-                            </li>
+                            <li><label for="brand"><span></span>{{$kategori->nama}}</label></li>
                             @endforeach
                             
                         </ul>

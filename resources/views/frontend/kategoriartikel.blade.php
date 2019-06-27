@@ -18,7 +18,9 @@
 <div class="content">
     <div class="container">
         <br>
-        <h2 class="new text-center">ARTIKEL TERBARU</h2>
+        @foreach($kategorinama as $kat)
+        <h2 class="new text-center">ARTIKEL BERKATEGORI "{{$kat->nama}}"</h2>
+        @endforeach
         <br>
         <div class="col-md-10">
             @foreach($artikel as $art)
@@ -29,7 +31,6 @@
                     <br><br>
                     <h6>{{$art->judul}}</h6>
                     <br><br>
-
                     <p>{!!substr($art->isi,0,200)!!}</p>
                     <br>
                     <span class="label label-primary" style="background-color: #fa7455;">
@@ -42,13 +43,11 @@
                     <span class="label label-primary" style="background-color: #fa7455;">
                         <i class="fa fa-tag"></i> {{$art->nama}}
                     </span>
-                    
                     <br>
                     <div class="text-center">
                         <a href="{{url('/detail-artikel/'.$art->link)}}" class="btn btn-block tombol" style="color: white;">
                         Lanjut Baca
                     </a>
-                        
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -57,10 +56,7 @@
             </div>
         </div>
                    @endforeach
-            <div class="col-md-12 col-sm-12 text-center">
-                <br>
-                    {{ $artikel->links() }}
-                </div>
+            
         </div>
         <div class="col-md-2">
              <div class="single-bottom">
