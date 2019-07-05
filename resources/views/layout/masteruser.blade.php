@@ -40,9 +40,9 @@ baju, jaket, parka, kediri, kota kediri, kab kediri,gmk,grosir murah kediri,gros
         <div class="top-head text-center" >
             <div class="header-para">
                 <ul class="social-in">
-                    <li><a href="#"><span class="fa fa-facebook fa-lg" style="color:white;"> </span></a></li>                       
-                    <li><a href="#"><span class="fa fa-instagram fa-lg" style="color:white;"> </span></a></li>
-                    <li><a href="#"><span class="fa fa-facebook fa-lg" style="color:white;"> </span></a></li>
+                    <li><a href="https://www.facebook.com/grosir.murah.kediri.07/" target="blank"><span class="fa fa-facebook fa-lg" style="color:white;"> </span></a></li>                       
+                    <li><a href="https://www.instagram.com/grosir.murah.kediri/" target="blank()"><span class="fa fa-instagram fa-lg" style="color:white;"> </span></a></li>
+                    <!-- <li><a href="#"><span class="fa fa-facebook fa-lg" style="color:white;"> </span></a></li> -->
                     
                 </ul>           
             </div>  
