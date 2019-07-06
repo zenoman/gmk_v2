@@ -181,6 +181,7 @@ class Logincontroller extends Controller
             $datausers = DB::table('tb_users')
             ->where('username',$username)
             ->orWhere('telp',$username)
+            ->orWhere('email',$username)
             ->get();
             
             foreach ($datausers as $du) {
@@ -199,7 +200,7 @@ class Logincontroller extends Controller
                 return response()->json(['status'=>'0','msg'=>'Maaf Password anda Tidak Sesuai']);
             }
         }else{
-            return response()->json(['status'=>'0','msg'=>'Maaf, Pengguna Belum Terdaftar']);
+            return response()->json(['status'=>'2','msg'=>'Maaf, Pengguna Belum Terdaftar']);
         }
         
     }
