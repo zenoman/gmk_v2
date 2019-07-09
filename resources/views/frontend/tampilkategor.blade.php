@@ -27,7 +27,7 @@
                         ->get();
                         @endphp
                         @foreach($fotos as $foto)
-                        <img src="{{asset('img/barang/'.$foto->nama)}}" class="img-responsive" alt="">
+                        <img src="{{asset('img/barang/'.$foto->nama)}}" class="img-responsive" style="width:70%;" alt="">
                         @endforeach
                                 <div class="zoom-icon">
                                     <ul class="in-by" style="padding-bottom: 5px;">

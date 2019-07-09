@@ -17,7 +17,7 @@
     @endsection
     @section('logo')
      @foreach($websettings as $webset)
-     <h1><a href="{{url('/')}}"><img src="{{asset('img/setting/'.$webset->logo)}}"></a></h1>
+     <h1><a href="{{url('/')}}"><img src="{{asset('img/setting/'.$webset->logo)}}" style="width:70%;"></a></h1>
     @endforeach
     @endsection
     @section('content')

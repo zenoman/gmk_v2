@@ -124,12 +124,12 @@
                                 <li>
                                     <a href="{{url('/pengeluaran')}}">Pengeluaran</a>
                                 </li>
-                                <!-- <li>
+                                <li>
                                     <a href="{{url('/transaksilangsung')}}">Transaksi Langsung</a>
                                 </li>
                                 <li>
                                     <a href="{{url('/listtransaksilangsung')}}">List Transaksi Langsung</a>
-                                </li> -->
+                                </li>
                                 <li>
                                     <a href="{{url('/pembelian/gagal')}}">Transaksi Gagal</a>
                                 </li>
