@@ -10,6 +10,7 @@
     @section('logo')
     @foreach($websettings as $webset)
     <a href="{{url('/')}}"><img src="{{asset('img/setting/'.$webset->logo)}}" alt="" style="width:70%;"></a>
+
     @endforeach
     @endsection
     
