@@ -150,13 +150,13 @@ function carikode(){
              ->select(DB::Raw("MAX(RIGHT(faktur,5)) as kd_max"));
 
              if($fk->count()>0){
-               // $finalkode="DVN".$tgl."00001";
+               // $finalkode="GMK".$tgl."00001";
                foreach($fk->get() as $fak){
                     $tmp=((int)$fak->kd_max)+1;
-                    $finalkode="DVN".$tgl.sprintf('%05s',$tmp);
+                    $finalkode="GMK".$tgl.sprintf('%05s',$tmp);
                }
             }else{
-                $finalkode="DVN".$tgl."00001";
+                $finalkode="GMK".$tgl."00001";
             }
             dd($finalkode);
 }
@@ -174,13 +174,13 @@ function transaksibeli(Request $request){
              ->select(DB::Raw("MAX(RIGHT(faktur,5)) as kd_max"));
 
              if($fk->count()>0){
-               // $finalkode="DVN".$tgl."00001";
+               // $finalkode="GMK".$tgl."00001";
                foreach($fk->get() as $fak){
                     $tmp=((int)$fak->kd_max)+1;
-                    $finalkode="STA".$tgl.sprintf('%05s',$tmp);
+                    $finalkode="GMK".$tgl.sprintf('%05s',$tmp);
                }
             }else{
-                $finalkode="DVN".$tgl."00001";
+                $finalkode="GMK".$tgl."00001";
             }
     if(empty($bank)){
         $data=DB::insert("insert into tb_transaksis(iduser,faktur,tgl,total,status,alamat_tujuan,ongkir,total_akhir,pembayaran,metode) values(?,?,?,?,?,?,?,?,?,?)",[$id,$finalkode,$tgltr,$total,$st,$al,"0",$total,"1",$mtd]);
