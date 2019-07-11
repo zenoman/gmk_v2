@@ -39,10 +39,10 @@
                                                <li>
                                                    isi <b>id_kategori</b> di file <b>"template.xlxs"</b> sesuai dengan <b>id kategori</b> di file <b>"kategori.xlsx"</b>, jangan isikan id lain selain id yang tercantum pada file <b>"kategori.xlsx"</b>. untuk lebih jelas lihat gambar di bawah ini
                                                </li><br>
-                                               <img src="{{url('img/web/ta_kat.jpg')}}">&nbsp;&nbsp;&nbsp;
-                                               <img src="{{url('img/web/war 1.jpg')}}">
+                                               <img src="{{url('img/web/ta_kat.JPG')}}">&nbsp;&nbsp;&nbsp;
+                                               <img src="{{url('img/web/war 1.JPG')}}">
                                                <br><br>
-                                               <img src="{{url('img/web/ta1.jpg')}}" width="98%"><br><br>
+                                               <img src="{{url('img/web/ta1.JPG')}}" width="98%"><br><br>
                                               <!--  <p>
                                                   Kemudian isi <b>kode_warna</b> di file <b>"template.xlxs"</b> sesuai dengan <b>Kode Warna</b> di file <b>"Warna.xlsx"</b>, jangan isikan id lain selain id yang tercantum pada file <b>"Warna.xlsx"</b>. untuk lebih jelas lihat gambar di bawah ini
                                                </p> -->
@@ -50,11 +50,11 @@
                                                <li>
                                                    isi <b>nama_barang</b> dan <b>deskripsi</b> dengan format text, kemudian untuk <b>harga_barang</b>,<b>harga_reseller</b>,<b>harga_beli</b>,<b>diskon_barang</b> isi dengan format angka, ingat, pastikan <b>diskon_barang</b> tidak lebih dari 99. Kosongkan kode_warna, stok dan ukuran pada barang utama. Untuk lebih jelas lihat gambar di bawah
                                                </li><br>
-                                               <img src="{{url('img/web/ta.jpg')}}" width="98%"><br><br>
+                                               <img src="{{url('img/web/ta.JPG')}}" width="98%"><br><br>
                                                <li>
                                                    Selanjutnya varian, varian hanya dapat di isi dengan huruf <b>y</b> atau <b>n</b> dan pastikan huruf kecil, huruf <b>y</b> digunakan untuk barang utama sedangkan <b>n</b> digunakan untuk variasi ukuran barang utama, pastikan variasi barang memiliki data <b>kode_warna, nama_barang</b>, <b>harga_beli</b>, <b>stok</b>, <b>ukuran</b> dan <b>varian(n)</b> kosongkan data lain selain data tersebut. <b>nama_barang</b> pada varian adalah nama barang di tambah ukuran, ini bersifat wajib, sedangkan <b>kode_warna</b> berasal dari data warna pada file <b>"Warna.xlxs"</b>. untuk lebih jelas lihat contoh berikut
                                                </li><br>
-                                               <img src="{{url('img/web/taa.jpg')}}" width="98%"><br><br>
+                                               <img src="{{url('img/web/taa.JPG')}}" width="98%"><br><br>
                                                <div class="alert alert-warning">
                                                 dari gambar di atas menunjukan bahwa barang <b>Kemeja mantul</b> memiliki variasi ukuran : L & S dengan warna hijau yang memiliki kode 04 dan warna merah muda dengan kode 07 kemudian <b>Kemeja Mantab</b> memiliki ukuran M & S dengan warna biru muda yang memiliki kode 05 dan warna hijau muda dengan kode 06.
                                                </div><br>
