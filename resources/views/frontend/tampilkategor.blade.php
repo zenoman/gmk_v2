@@ -38,6 +38,7 @@
                                         @php
                                         $detail = DB::table('tb_barangs')
                                         ->where('kode',$barang->kode_barang)
+                                        ->groupby('warna')
                                         ->get();
                                         @endphp
                                         @foreach($detail as $dtl)                   
@@ -52,6 +53,7 @@
                                         $detail = DB::table('tb_barangs')
                                         ->select(DB::raw('tb_barangs.kode,tb_varian.hex'))
                                         ->leftjoin('tb_varian','tb_varian.kode_v','=','tb_barangs.kode_v')
+                                        ->groupby('tb_varian.hex')
                                         ->where('kode',$barang->kode_barang)
                                         ->get();
                                         @endphp

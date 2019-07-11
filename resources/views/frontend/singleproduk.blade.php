@@ -6,7 +6,12 @@
     <link rel="shortcut icon" type="image" href="{{asset('img/setting/'.$webset->ico)}}">
     @endforeach
     @endsection
-    
+    @section('logo')
+    @foreach($websettings as $webset)
+    <a href="{{url('/')}}"><img src="{{asset('img/setting/'.$webset->logo)}}" alt="" style="width:70%;"></a>
+
+    @endforeach
+    @endsection
 
     @section('content')
     <link rel="stylesheet" href="{{asset('user_aset/css/etalage.css')}}">
@@ -109,10 +114,7 @@
                 <div class="clearfix"> </div>
                   <!----- tabs-box ---->
         <div class="sap_tabs">  
-                     <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
-                          <!-- <ul class="resp-tabs-list">
-                              <li class="resp-tab-item " aria-controls="tab_item-0" role="tab"><span>Product Description</span></li>
-                          </ul>      -->             
+                     <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">         
                             <div class="resp-tabs-container">
                                 <h2 class="resp-accordion resp-tab-active" role="tab" aria-controls="tab_item-0"><span class="resp-arrow"></span>Product Description</h2><div class="tab-1 resp-tab-content resp-tab-content-active" aria-labelledby="tab_item-0" style="display:block">
                                     <div class="facts text-center">
