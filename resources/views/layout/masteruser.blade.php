@@ -87,27 +87,13 @@ baju, jaket, parka, kediri, kota kediri, kab kediri,gmk,grosir murah kediri,gros
     </div>
 </div>
         @yield('content')
-    <div class="bottom-content">
-    
-            <div class="col-md-4">
-                <img src="images/ad1.png" class="img-responsive" alt="">
-            </div>
-            <div class="col-md-4">
-                <img src="images/ad1.png" class="img-responsive" alt="">
-            </div>
-            <div class="col-md-4">
-                <img src="images/ad1.png" class="img-responsive" alt="">
-            </div>
-            <div class="clearfix"> </div>
-
-            
-        </div>
+   
     
     </div>
 </div>
     <!--footer-->
     <div class="footer">
-        <div class="container">
+        <!-- <div class="container">
             <div class="col-md-12 text-center">
                 <a href="index.html"><img src="images/logo.png" alt=""></a>
                 <p class="footer-class">© 2015 Markito All Rights Reserved | Template by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
@@ -115,7 +101,7 @@ baju, jaket, parka, kediri, kota kediri, kab kediri,gmk,grosir murah kediri,gros
             
             
             <div class="clearfix"> </div>
-        </div>
+        </div> -->
         <script type="text/javascript">
                         $(document).ready(function() {
                             /*
