@@ -101,7 +101,7 @@ function orderBarang(Request $request){
     $stk=$sisa->stok;
 
     if($stk<$jumlah ||  $dupli==true ){
-        return response()->json(["status"=>"0","pesan"=>"Stok Barang Tersisa Atau Sudah Dipesan Dengan QTY 1".$stk]);
+        return response()->json(["status"=>"0","pesan"=>"Stok Barang Tersisa Habis Atau Sudah Dipesan Dengan QTY 1"]);
     }else{
        
          //simpan ke Query

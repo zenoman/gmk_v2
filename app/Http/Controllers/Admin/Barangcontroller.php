@@ -513,6 +513,10 @@ class Barangcontroller extends Controller
         
     }
 //------------------------------- API ANDROID _--------------
+function versionN(){
+    $data=DB::table("apk_version")->get();
+    return response()->json(["data"=>$data]);
+}
 function getBarang(){
     $barang = DB::table('tb_kodes')
     ->join('tb_kategoris', 'tb_kodes.id_kategori', '=', 'tb_kategoris.id')       
