@@ -35,7 +35,7 @@ baju, jaket, parka, kediri, kota kediri, kab kediri,gmk,grosir murah kediri,gros
 <body> 
 <!--header-->   
 <div class="header" >
-    <div class="top-header" >       
+    <div class="top-header" style="height: 60px;">       
         <div class="container">
         <div class="top-head text-center" >
             <div class="header-para">

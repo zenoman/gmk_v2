@@ -150,23 +150,27 @@ function carikode(){
              ->select(DB::Raw("MAX(RIGHT(faktur,5)) as kd_max"));
 
              if($fk->count()>0){
-               // $finalkode="DVN".$tgl."00001";
+               // $finalkode="GMK".$tgl."00001";
                foreach($fk->get() as $fak){
                     $tmp=((int)$fak->kd_max)+1;
-                    $finalkode="DVN".$tgl.sprintf('%05s',$tmp);
+                    $finalkode="GMK".$tgl.sprintf('%05s',$tmp);
                }
             }else{
-                $finalkode="DVN".$tgl."00001";
+                $finalkode="GMK".$tgl."00001";
             }
             dd($finalkode);
 }
 function transaksibeli(Request $request){
+    $request->validate([
+        'id'=>'required',
+        'total'=>'required',
+        ]);
     $total=$request->total;
     $st="terkirim";
     $id=$request->id;
     $al=$request->alamat;
     $bank=$request->bank;
-    $mtd=$request->mtd;
+    $mtd="pesan";
      //Cari Kode
      $tgl=date("dmy"); 
      $tgltr=date("ymd");
@@ -174,30 +178,61 @@ function transaksibeli(Request $request){
              ->select(DB::Raw("MAX(RIGHT(faktur,5)) as kd_max"));
 
              if($fk->count()>0){
-               // $finalkode="DVN".$tgl."00001";
+               // $finalkode="GMK".$tgl."00001";
                foreach($fk->get() as $fak){
                     $tmp=((int)$fak->kd_max)+1;
-                    $finalkode="STA".$tgl.sprintf('%05s',$tmp);
+                    $finalkode="GMK".$tgl.sprintf('%05s',$tmp);
                }
             }else{
-                $finalkode="DVN".$tgl."00001";
+                $finalkode="GMK".$tgl."00001";
             }
-    if(empty($bank)){
-        $data=DB::insert("insert into tb_transaksis(iduser,faktur,tgl,total,status,alamat_tujuan,ongkir,total_akhir,pembayaran,metode) values(?,?,?,?,?,?,?,?,?,?)",[$id,$finalkode,$tgltr,$total,$st,$al,"0",$total,"1",$mtd]);
-        $up=DB::table("tb_details")
-                ->where(['iduser'=>$id,'sb'=>'0'])
-                ->update(['sb'=>'1','faktur'=>$finalkode]);
-    }else{            
-        $data=DB::insert("insert into tb_transaksis(iduser,faktur,tgl,total,status,alamat_tujuan,pembayaran,metode) values(?,?,?,?,?,?,?,?)",[$id,$finalkode,$tgltr,$total,$st,$al,$bank,$mtd]);
-        $up=DB::table("tb_details")
-                ->where(['iduser'=>$id,'sb'=>'0'])
-                ->update(['sb'=>'1','faktur'=>$finalkode]);
-    }
-    if($data){
-        return response()->json(["status"=>"1","pesan"=>"Transaksi Berhasil,Tunggu Total Ongkir Jika Metode Pemesanan Selain ambil Di toko"]);
-    }else{
-        return response()->json(["status"=>"0","pesan"=>"Transaksi Gagal"]);
-    }
+            
+            //----------------Cek
+     $sc="";
+    $cidw=DB::table('tb_details')
+        ->where(['iduser'=>$id,'sb'=>'0'])
+        ->get();
+        foreach($cidw as $dt){
+            $idwarna=$dt->idwarna;
+            $jml=$dt->jumlah;
+            $ck=DB::table('tb_barangs')
+                ->where(['idbarang'=>$idwarna])
+                ->get();
+                foreach($ck as $cek){
+                    $stk=$cek->stok;
+                     if($stk<=0)break;
+                }
+                 if($stk<=0)break;
+                if($stk<$jml){
+                     $sc=0;
+                }else{
+                     $sc=1;
+                }
+           
+        }
+        //cek stok
+       if($sc==0){
+            return response()->json(["status"=>"0","pesan"=>"barang Habis ".$cek->barang_jenis]);
+       }else{
+           if(empty($bank)){
+                $data=DB::insert("insert into tb_transaksis(iduser,faktur,tgl,total,status,alamat_tujuan,ongkir,total_akhir,pembayaran,metode) values(?,?,?,?,?,?,?,?,?,?)",[$id,$finalkode,$tgltr,$total,$st,$al,"0",$total,"1",$mtd]);
+                $up=DB::table("tb_details")
+                        ->where(['iduser'=>$id,'sb'=>'0'])
+                        ->update(['sb'=>'1','faktur'=>$finalkode]);
+            }else{            
+                    $data=DB::insert("insert into tb_transaksis(iduser,faktur,tgl,total,status,alamat_tujuan,pembayaran,metode) values(?,?,?,?,?,?,?,?)",[$id,$finalkode,$tgltr,$total,$st,$al,$bank,$mtd]);
+                    $up=DB::table("tb_details")
+                            ->where(['iduser'=>$id,'sb'=>'0'])
+                            ->update(['sb'=>'1','faktur'=>$finalkode]);
+                }
+                if($data){
+                    return response()->json(["status"=>"1","pesan"=>"Transaksi Berhasil,Tunggu Total Ongkir Jika Metode Pemesanan Selain ambil Di toko"]);
+                }else{
+                    return response()->json(["status"=>"0","pesan"=>"Transaksi Gagal, Stok Tidak Cukup Atau Stok Telah Habis"]);
+                }
+       }    
+            
+    //---------------------------       
 }
 
 function vTrans($id){

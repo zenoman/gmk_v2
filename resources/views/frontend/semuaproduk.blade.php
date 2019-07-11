@@ -79,7 +79,7 @@
                 </div>
                 @endforeach
                 <div class="clearfix"> </div>
-                <div class="col-md-12 text-center">
+                <div class="col-md-12 text-center" style="padding-bottom: 15px;">
                 {{ $barangs->links() }}
                 <br>
                 <button class="tombol" onclick="history.go(-1)"> <i class="fa fa-arrow-left"></i> Kembali</button>
