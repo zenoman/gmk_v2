@@ -203,9 +203,9 @@
                     
                     <br>
                     <div class="text-center">
-                        <button class="btn btn-block tombol">
+                       <a href="{{url('/detail-artikel/'.$art->link)}}" class="btn btn-block tombol" style="color: white;">
                         Lanjut Baca
-                    </button>
+                    </a>
                         
                     </div>
                     <div class="clearfix"> </div>
@@ -215,11 +215,11 @@
             </div>
         </div>
                    @endforeach
-            <div class="col-md-12 col-sm-12 text-center">
+            <div class="col-md-12 col-sm-12 text-center" style="padding-bottom: 15px;">
                 <br>
-                    <button class="tombol">
+                    <a href="{{url('/list-artikel')}}" class="tombol" style="color: white;">
                         Lihat Semua Artikel
-                    </button>
+                    </a>
                 </div>
    @endsection
     

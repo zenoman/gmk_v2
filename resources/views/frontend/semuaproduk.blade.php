@@ -28,7 +28,7 @@
                         ->get();
                         @endphp
                         @foreach($fotos as $foto)
-                        <img src="{{asset('img/barang/'.$foto->nama)}}" class="img-responsive" alt="">
+                        <img src="{{asset('img/barang/'.$foto->nama)}}" class="img-responsive" style="width:70%;" alt="">
                         @endforeach
                                 <div class="zoom-icon">
                                     <ul class="in-by" style="padding-bottom: 5px;">
@@ -78,7 +78,8 @@
                         </div>
                 </div>
                 @endforeach
-                <div class="col-md-12 text-center">
+                <div class="clearfix"> </div>
+                <div class="col-md-12 text-center" style="padding-bottom: 15px;">
                 {{ $barangs->links() }}
                 <br>
                 <button class="tombol" onclick="history.go(-1)"> <i class="fa fa-arrow-left"></i> Kembali</button>
