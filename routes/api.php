@@ -60,3 +60,5 @@ Route::post("cari/",'Admin\Barangcontroller@cariBarang');
 Route::get('cvarian/{id}','Admin\Barangcontroller@Cvarian');
 //get varianSize
 Route::get('csize/{id}/{kdv}','Admin\Barangcontroller@Csize');
+//Cek Version Number
+Route::get('version','Admin\Barangcontroller@versionN');
