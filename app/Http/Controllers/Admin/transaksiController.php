@@ -71,7 +71,9 @@ function orderBarang(Request $request){
     $id=$request->get('idwarna');
     $iduser=$request->get('iduser');        
     $tgl=date('y-m-d');
-   
+   //   cek pesan
+   $dupli=false;
+   // 
     $kode=$request->get('kode_barang');
     $barang=$request->get('barang');
     $harga=$request->get('harga');
@@ -80,6 +82,15 @@ function orderBarang(Request $request){
     $diskon=$request->get('diskon');
     $total=$totala-($totala*$diskon/100);
     $metod="pesan";
+    // //cek duplikat pesan
+    $dup=DB::table('tb_details')
+        ->where('iduser',$iduser)
+        ->where('idwarna',$id)
+        ->where('kode_v',$kodev)
+        ->where('sb','0')->count();
+    if($dup>0){
+        $dupli=true;
+    }
     //cek tgl
     $maxtgl=DB::table("settings")->first();
     $keep=$maxtgl->max_tgl;
@@ -88,8 +99,9 @@ function orderBarang(Request $request){
     $sisa=DB::table("tb_barangs")
             ->where('idbarang',$id)->first();
     $stk=$sisa->stok;
-    if($stk<$jumlah){
-        return response()->json(["status"=>"0","pesan"=>"Stok Barang Tersisa ".$stk]);
+
+    if($stk<$jumlah ||  $dupli==true ){
+        return response()->json(["status"=>"0","pesan"=>"Stok Barang Tersisa Atau Sudah Dipesan Dengan QTY 1".$stk]);
     }else{
        
          //simpan ke Query
