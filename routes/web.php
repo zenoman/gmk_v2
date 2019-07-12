@@ -79,6 +79,7 @@ Route::get('/pembelian/gagal','Admin\PembelianController@listtolak');
 Route::get('/pembelian/listcancel','Admin\PembelianController@listcancel');
 Route::post('/cetaklistcancel','Admin\PembelianController@cetaklisttolak');
 //catalog
+Route::get('/unduh/{nama}','frontend\Catalogcontroller@unduh');
 Route::get('/cara-belanja','frontend\Catalogcontroller@carabelanja');
 Route::get('/list-testimoni','frontend\Catalogcontroller@testimoni');
 Route::get('/list-artikel/{id}/kategori','frontend\Catalogcontroller@kategoriartikel');
@@ -88,6 +89,8 @@ Route::get('/semuaproduk/{id}/kategori','frontend\Catalogcontroller@kategori');
 Route::get('/cari','frontend\Catalogcontroller@caribarang');
 Route::get('/semuaproduk','frontend\Catalogcontroller@index');
 Route::get('/detailbarang/{id}','frontend\Catalogcontroller@show');
+
+
 //pembelian
 Route::get('/pembelian/{id}/hapus','Admin\PembelianController@hapus');
 Route::post('/pembelian','Admin\PembelianController@terima');

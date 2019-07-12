@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Session;
 
 class Catalogcontroller extends Controller
 {
+    public function unduh($nama){
+        $file = public_path().'/img/barang/'.$nama;
+        return response()->download($file);
+    }
+    //==============================================
     public function detailartikel($judul){
     $websetting = DB::table('settings')->limit(1)->get();
        $artikel = DB::table('tb_artikel')
