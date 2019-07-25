@@ -454,7 +454,7 @@ class Barangcontroller extends Controller
         $kodenya = $brg->kode_barang;
         }
 
-        //dd($kodenya);
+        
         $hitung_gambar = DB::table('gambar')
         ->where('kode_barang', $kodenya)
         ->count();
@@ -465,13 +465,11 @@ class Barangcontroller extends Controller
             File::delete('img/barang/'.$foto->nama);
         }
         DB::table('gambar')->where('kode_barang',$kodenya)->delete();
-        //DB::table('tb_tambahstoks')->where('kode_barang', $kodenya)->delete();
-        // DB::table('tb_stokawals')->where('idbarang',$id)->delete();
+        
         DB::table('tb_barangs')->where('kode', $kodenya)->delete();
         DB::table('tb_kodes')->where('kode_barang', $kodenya)->delete();    
     }else{
-        //DB::table('tb_tambahstoks')->where('kode_barang', $kodenya)->delete();
-        // DB::table('tb_stokawals')->where('idbarang',$id)->delete();
+        
         DB::table('tb_barangs')->where('kode', $kodenya)->delete();
         DB::table('tb_kodes')->where('kode_barang', $kodenya)->delete();
     }
@@ -484,29 +482,32 @@ class Barangcontroller extends Controller
             return redirect('barang')->with('statuserror','Tidak ada data yang dipilih');
         }else{
 
-        foreach ($request->kodebarang as $id){
-            $barang = DB::table('tb_kodes')
-        ->where('id',$id)->get();
-        
-        foreach ($barang as $brg) {
-        $kodenya = $brg->kode_barang;
-        }
+            foreach ($request->kodebarang as $id){
+                $barang = DB::table('tb_kodes')
+                ->where('id',$id)->get();
+                
+                $jumlahbarang = DB::table('tb_kodes')
+                ->where('id',$id)->count();
+                    
+                    if($jumlahbarang>0){
+                          foreach ($barang as $brg){
+                            $kodenya = $brg->kode_barang;
+                            }
 
-        $hitung_gambar = DB::table('gambar')
-        ->where('kode_barang', $kodenya)
-        ->count();
+                            $hitung_gambar = DB::table('gambar')
+                            ->where('kode_barang', $kodenya)
+                            ->count();
 
-        if($hitung_gambar>0){
-             $fotos = DB::table('gambar')->where('kode_barang',$kodenya)->get();
-        foreach ($fotos as $foto) {
-            File::delete('img/barang/'.$foto->nama);
-        }}
-        //DB::table('tb_tambahstoks')->where('kode_barang', $kodenya)->delete();
-        DB::table('gambar')->where('kode_barang',$kodenya)->delete();
-        DB::table('tb_stokawals')->where('kode_barang',$kodenya)->delete();
-        DB::table('tb_barangs')->where('kode', $kodenya)->delete();
-        DB::table('tb_kodes')->where('kode_barang', $kodenya)->delete();
-        }
+                            if($hitung_gambar>0){
+                                $fotos = DB::table('gambar')->where('kode_barang',$kodenya)->get();
+                                foreach ($fotos as $foto) {
+                                    File::delete('img/barang/'.$foto->nama);
+                                }}
+                                DB::table('gambar')->where('kode_barang',$kodenya)->delete();
+                                DB::table('tb_stokawals')->where('kode_barang',$kodenya)->delete();
+                                DB::table('tb_barangs')->where('kode', $kodenya)->delete();
+                                DB::table('tb_kodes')->where('kode_barang', $kodenya)->delete();
+                    }}
         return back()->with('status','Hapus data berhasil');  
         }
         
