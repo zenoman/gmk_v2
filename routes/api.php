@@ -21,7 +21,13 @@ Route::get('listEtalase/','Admin\Barangcontroller@listEtalase');
 Route::get('listKategori/','Admin\Kategoricontroller@getKategori');
 Route::post('/loginUser','Logincontroller@loginApi');
 Route::get('slider/','Admin\Slidercontroller@getSlider');
+// ===================================================
 Route::post('login/','Logincontroller@loginApi');
+// Login Email
+Route::post('gmlogin','Logincontroller@loginGM');
+// Register Email
+Route::post('gmreg','Logincontroller@regGm');
+// ===================================================
 Route::get('gambar_item/{id}','Admin\Barangcontroller@gmbItem');
 Route::get('warna_item/{id}','Admin\Barangcontroller@warnaItem');
 Route::get('kategori/{id}','Admin\Barangcontroller@perKategori');

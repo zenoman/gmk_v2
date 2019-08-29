@@ -204,6 +204,41 @@ class Logincontroller extends Controller
         }
         
     }
+    function loginGM(Request $req){
+        $username = $req->username;
+        $us="";
+        $data = DB::table('tb_users')
+        ->where('username',$username)
+        ->orWhere('telp',$username)
+        ->count();
+        
+        if($data > 0){
+            $datausers = DB::table('tb_users')
+            ->where('username',$username)
+            ->orWhere('telp',$username)
+            ->orWhere('email',$username)
+            ->get();
+            
+            foreach ($datausers as $du) {
+                $id = $du->id;
+                $jumlahcancel=$du->cancel;
+                $us=$du->username;
+                $mypass = $du->password;
+            }
+
+            if($username==$us){
+                 if($jumlahcancel>=3){
+                    return response()->json(['status'=>'0','msg'=>'Maaf Jumlah Cancel Anda Melebihi Batas, Silahkan Hubungi Admin','data'=>$datausers]);
+                }else{
+                    return response()->json(['status'=>'1','msg'=>'Berhasil Login','data'=>$datausers]);
+                }
+            }else{
+                return response()->json(['status'=>'0','msg'=>'Maaf Password anda Tidak Sesuai']);
+            }
+        }else{
+            return response()->json(['status'=>'2','msg'=>'Maaf, Pengguna Belum Terdaftar']);
+        }
+    }
     function updateProfile(Request $rq){
         $id=$rq->id;
         $username=$rq->username;
@@ -250,6 +285,37 @@ class Logincontroller extends Controller
                     ]);
                     if($data){
                         return response()->json(['msg'=>' Berhasil Terdaftar,Silahkan Login ']); 
+                    }else{
+                        return response()->json(['msg'=>' Gagal Terdaftar,Silahkan Coba Lagi ']); 
+                    }
+                }
+            }
+        } 
+    }
+    function regGm(Request $rq){
+        $username=$rq->username;       
+        $email=$rq->email;
+        $tlp=$rq->telp;
+        //cek username dan email dand telepon
+        $dtUser=DB::table('tb_users')->where('username',$username)->count();        
+        if($dtUser>0){
+            return response()->json(['msg'=>' Username Sudah Digunakan']); 
+        }else{
+            $dtEmail=DB::table('tb_users')->where('email',$email)->count();
+            if($dtEmail>0){
+                return response()->json(['msg'=>' Email Sudah Digunakan']); 
+            }else{
+                $dtTlp=DB::table('tb_users')->where('telp',$tlp)->count();
+                if ($dtTlp>0) {
+                    return response()->json(['msg'=>' Telepon Sudah Digunakan']); 
+                }else{
+                    $data=Usermodel::create([
+                        'username'=>$username,
+                        'email'=>$email,
+                        'telp'=>$tlp,
+                    ]);
+                    if($data){
+                        return response()->json(['msg'=>' Berhasil Terdaftar,Silahkan Login, Silahkan Ganti Pasword !']); 
                     }else{
                         return response()->json(['msg'=>' Gagal Terdaftar,Silahkan Coba Lagi ']); 
                     }
