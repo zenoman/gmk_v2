@@ -154,7 +154,7 @@
                                 <h2 class="resp-accordion resp-tab-active" role="tab" aria-controls="tab_item-0"><span class="resp-arrow"></span>Product Description</h2><div class="tab-1 resp-tab-content resp-tab-content-active" aria-labelledby="tab_item-0" style="display:block">
                                     <div class="facts text-center">
                                       <p>Semua transaksi dapat dilakukan di aplikasi android, website ini berfungsi sebagai katalok. anda dapat menginstall aplikasi android melalui link di bawah ini.</p>
-                                      <a href="#" class="tombol" style="color:white;"><i class="fa fa-android"></i> Download Aplikasi GMK</a>         
+                                      <a href="https://play.google.com/store/apps/details?id=com.gmk.taufiqismael.gmk_17" target="blank()" class="tombol" style="color:white;"><i class="fa fa-android"></i> Download Aplikasi GMK</a>         
                                     </div>
                              
                                 </div>                                  
@@ -183,7 +183,7 @@
                                 <img class="img-responsive fashion" src="{{asset('img/barang/'.$ft->nama)}}" alt="">
                                 @endforeach
                             <div class="grid-product">
-                                <a href="#" class="elit">{{$lain->barang}}</a>
+                                <a href="{{url('/detailbarang/'.$lain->id)}}" class="elit">{{$lain->barang}}</a>
                                 <span class=" price-in">
                                 @if($lain->diskon > 0)
                                     {{"Rp ". number_format(($lain->harga_barang-($lain->diskon/100*$lain->harga_barang)),0,',','.')}}
