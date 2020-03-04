@@ -111,7 +111,7 @@ Route::get('/cektransaksi/{id}','Admin\Dashboardcontroller@updatetransaksi');
 //========================================================
 
 Route::get('/hubungikami','frontend\userUtama@hubungi');
-
+Route::get('/privacy-policy','frontend\userUtama@privasi');
 Route::resource('/','frontend\userUtama');
 Route::get('/editprofileuser','frontend\userUtama@edituser');
 Route::post('/editprofileuser','frontend\userUtama@aksiedit');

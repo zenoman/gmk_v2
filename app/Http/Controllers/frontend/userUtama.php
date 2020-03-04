@@ -135,5 +135,12 @@ class userUtama extends Controller
         return view('frontend/hubungikami',['websettings'=>$websetting]);
     }
 
+    //==========================================================
+    public function privasi()
+    {
+        $websetting = DB::table('settings')->limit(1)->get();
+        return view('frontend/privasi',['websettings'=>$websetting]);
+    }
+
     
 }

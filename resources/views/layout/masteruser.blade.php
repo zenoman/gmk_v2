@@ -71,7 +71,9 @@ baju, jaket, parka, kediri, kota kediri, kab kediri,gmk,grosir murah kediri,gros
                 <li class="grid">
                     <a href="{{url('/hubungikami')}}">Hubungi Kami</a>
                 </li>         
-                
+                <li class="grid">
+                    <a href="{{url('/privacy-policy')}}">Privacy Policy</a>
+                </li>
               </ul> 
                 </div>
                     
